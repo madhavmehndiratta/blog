@@ -1,0 +1,105 @@
+# Site Settings
+name: InfoSec Articles
+title: Infosec Articles | Madhav Mehndiratta's Blog
+description: Welcome to Infosec Articles! Over here you will find articles related to Information Security, challenge walkthroughs, tutorials, exploits and much more.
+tags:
+  - infosec articles
+  - hacking articles
+  - information-security
+  - infosecarticles
+  - madhavmehndiratta
+  - blog
+  - ethical-hacking
+  - infosec
+  - cybersecurity
+  - ctf
+email: madhavmehndiratta2k3@gmail.com
+show_hero: true
+menu:
+  - title: Home
+    url: /
+  - title: About
+    url: /about
+  - title: Contact
+    url: /contact
+  # - title: Feed
+  #   url: /feed.xml
+
+
+# Social Media Settings
+# Remove the item if you don't need it
+github_username: madhavmehndiratta
+twitter_username: 0xMadhav
+instagram_username: madhavmehndiratta
+linkedin_username: madhavmehndiratta
+
+
+# Posts Settings
+show_time_bar: false
+show_modal_on_exit: false
+show_modal_on_finish_post: true
+two_columns_layout: true
+
+
+# Advanced Settings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://infosecarticles.com"
+google_analytics: ""
+language: "en"
+categories_folder: category
+sent_message_url: "/contact/message-sent/"
+
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+collections:
+  authors:
+    output: true
+paginate_path: "/page/:num/"
+use_logo: true
+
+# Content paginator
+paginate_content:
+  enabled: true
+  debug: false
+  collections:
+    - posts
+  auto: false
+  separator: "--page-break--"
+  permalink: "/:num/"
+  seo_canonical: true
+  properties:
+    part:
+      is_generated: true
+    last:
+      is_generated: true
+    single:
+      is_generated: true
+
+# SASS
+sass:
+  style: compressed
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-paginate-content
+
+# Exclude my node related stuff
+exclude: [
+  'package.json',
+  'package-lock.json',
+  'src',
+  'node_modules',
+  'initpost.sh',
+  'Gemfile',
+  'Gemfile.lock',
+  'gulpfile.js',
+  'README.md',
+  'LICENSE'
+]
+
+# Theme
+version: v3.1.0

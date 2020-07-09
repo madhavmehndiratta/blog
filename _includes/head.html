@@ -1,0 +1,81 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% assign title = '' %}
+    {% if page.layout == 'author' %}
+        {% assign title = page.display_name %}
+    {% elsif page.title %}
+        {% assign title = page.title %}
+    {% else %}
+        {% assign title = site.title %}
+    {% endif %}
+
+    {% assign image = '/assets/img/blog-image.png' %}
+    {% if page.image %}
+        {% assign image = page.image %}
+    {% endif %}
+
+    {% assign description = '' %}
+    {% if page.description %}
+        {% assign description = page.description | strip_html | strip_newlines | truncate: 160 %}
+    {% else %}
+        {% assign description = site.description %}
+    {% endif %}
+
+    {% assign url = '' %}
+    {% if paginator.page_trail %}
+        {% assign url = paginator.first_page_path | replace:'index.html','' | prepend: site.baseurl | prepend: site.url %}
+    {% else %}
+        {% assign url = page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url %}
+    {% endif %}
+
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}">
+    {% if page.tags %}
+        <meta name="keywords" content="{{ page.tags | join: ', ' }}">
+    {% endif %}
+
+    <!-- Social: Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta property="twitter:image:src" content="{{ image | prepend: 'https://infosecarticles.com'}}">
+    {% if site.twitter_username %}
+        <meta name="twitter:site" content="@{{ site.twitter_username }}">
+    {% endif %}
+
+    <!-- Social: Facebook / Open Graph -->
+    <meta property="og:url" content="{{ url }}">
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:image" content="{{ image | prepend: 'https://infosecarticles.com'}}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property=”og:type” content=”blog” />
+    <meta property="og:site_name" content="{{ site.title }}">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/img/favicon/site.webmanifest">
+    
+    <!-- Android Lolipop Theme Color -->
+    <meta name="theme-color" content="#141414">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | prepend: site.baseurl }}">
+    <link rel="canonical" href="{{ url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}" />
+
+    <!-- Include extra styles -->
+    {% include extra-css.html %}
+
+    <!-- JavaScript enabled/disabled -->
+    <script>
+        document.querySelector('html').classList.remove('no-js');
+    </script>
+</head>
