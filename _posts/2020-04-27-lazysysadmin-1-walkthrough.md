@@ -139,7 +139,7 @@ smb: \wordpress\>
 ```
  Looking into the wp-config, we get some username and password.
 
- ```r
+```r
  /** MySQL database username */
 define('DB_USER', 'Admin');
 
