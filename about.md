@@ -4,6 +4,8 @@ title: About
 description: About this Blog
 permalink: /about/
 ---
+
+<h1>ABOUT US</h1>
 <p align="justify">
 This blog is to help readers experience the artistic world of hacking. Hacking is like Chess: The more you do it, The more you’re good at it. Here you will find writeups for CTF challenges, articles about certain topics and even quick notes about different things that I want to remember.</p>
 
