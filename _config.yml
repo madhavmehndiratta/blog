@@ -44,7 +44,7 @@ two_columns_layout: true
 # Advanced Settings
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://infosecarticles.com"
-google_analytics: ""
+google_analytics: "UA-166855612-3"
 language: "en"
 categories_folder: category
 sent_message_url: "/contact/message-sent/"
