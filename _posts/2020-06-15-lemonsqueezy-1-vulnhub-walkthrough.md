@@ -8,8 +8,9 @@ image: /assets/img/uploads/lemonsqueezy/lemonsqueezy.jpg
 optimized_image: /assets/img/uploads/lemonsqueezy/lemonsqueezy-optimized.jpg
 category: walkthrough
 tags: vulnhub boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: lemonsqueezy, lemonsqueezy vulnhub, lemonsqueezy writeup, vulnhub, lemonsqueezy walkthrough, lemonsqueezy vulnhub walkthrough, infosec articles
 ---
 
 Today we will be having a walkthrough of another boot2root machine called “LemonSqueezy:1”. This machine is rated easy and good for beginners. This includes enumerating Wordpress and PhpMyAdmin to get the user shell and then exploiting a cron job running on the machine to get root. I've added the machine to my hosts file. Let's dive in.

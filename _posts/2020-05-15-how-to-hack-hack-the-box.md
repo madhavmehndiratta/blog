@@ -8,8 +8,9 @@ image: /assets/img/uploads/joinhackthebox/htb.jpg
 optimized_image: /assets/img/uploads/joinhackthebox/htb-optimized.jpg
 category: walkthrough
 tags: hackthebox tutorial
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: hackthebox, hackthebox invite code, how to hack hackthebox, hackthebox signup, how to login in hackthebox, hackthebox walkthrough, htb invite code, infosec articles
 ---
 
 <p align="justify">

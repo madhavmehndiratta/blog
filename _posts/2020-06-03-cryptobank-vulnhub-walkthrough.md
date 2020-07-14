@@ -8,8 +8,9 @@ image: /assets/img/uploads/cryptobank/cryptobank.png
 optimized_image: /assets/img/uploads/cryptobank/cryptobank-optimized.png
 category: walkthrough
 tags: vulnhub boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: cryptobank, cryptobank vulnhub, vulnhub, cryptobank vulnhub walkthrough, cryptobank writeup, infosec articles, vulnhub crytobank writeup
 ---
 
 

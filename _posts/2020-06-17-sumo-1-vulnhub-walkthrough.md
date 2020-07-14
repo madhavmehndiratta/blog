@@ -8,8 +8,9 @@ image: /assets/img/uploads/sumo/sumo-optimized.png
 optimized_image: /assets/img/uploads/sumo/sumo-optimized.png
 category: walkthrough
 tags: vulnhub boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: sumo, sumo 1 vulnhub, vulnhub, sumo vulnhub walkthrough, sumo vulnhub writeup, vulnhub sumo, infosec articles, sumo vulnhub writeup
 ---
 
 Today we will be doing Sumo:1 from Vulnhub. This machine is rated easy and good for beginners. This includes exploiting a shellshock vulnerability to get a reverse shell and then exploiting the old version kernel used by the VM to get root. I've add the IP to my hosts file, So Lets Begin!

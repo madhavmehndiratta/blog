@@ -8,8 +8,9 @@ image: /assets/img/uploads/muzzybox/muzzybox.png
 optimized_image: /assets/img/uploads/muzzybox/muzzybox-optimized.png
 category: walkthrough
 tags: vulnhub boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: muzzybox, vulnhub, muzzybox writeup, muzzybox walkthorugh, muzzybox vulnhub walkthrough, infosec articles, muzzybox 1 writeup
 ---
 
 Muzzybox:1 is another boot2root VM from Vulnhub. It was created by Muzzy. It consists of 3 challenges, each having a flag of its own. I’ve added the IP address to my hosts file. Let's Begin!

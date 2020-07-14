@@ -8,8 +8,9 @@ image: /assets/img/uploads/stapler/stapler.jpg
 optimized_image:
 category: walkthrough
 tags: vulnhub boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: stapler, stapler 1 vulnhub, stapler vulnhub walkthrough, vulnhub, stapler writeup, infosec articles, vulnhub stapler
 ---
 
 Stapler:1 is another boot to root machine available on vulnhub which is rated as Beginner. It is one of several vulnerable systems hosted on vulnhub that is supposed to assist penetration testers for OSCP Training.

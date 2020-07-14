@@ -46,7 +46,7 @@ POSTPATH="${BINPATH}/_posts"
 DIST_FOLDER="$POSTPATH"
 
 # Set your blog URL
-BLOG_URL="https://blog.madhavmehndiratta.me/"
+BLOG_URL="https://infosecarticles.com/"
 
 # Set your assets URL
 ASSETS_URL="assets/img/"
@@ -121,6 +121,7 @@ echo "category:"
 echo "tags:"
 echo "author:"
 echo "paginate: false"
+echo "keywords:"
 echo "---"
 
 }

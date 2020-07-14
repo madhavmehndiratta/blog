@@ -8,8 +8,9 @@ image: /assets/img/uploads/vulnversity/vulnversity.jpg
 optimized_image: /assets/img/uploads/vulnversity/vulnversity.jpg
 category: walkthrough
 tags: tryhackme boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: vulnversity, vulnversity try hack me, vulnversity walkthrough, infosec articles, tryhackme walkthrough, vulnversity writeup
 ---
 
 Today we will be doing Vulnversity, a boot2root machine from Try Hack Me. This box covers some basics of enumeration, exploiting the file upload vulnerability and then exploiting SUID bits. Lets Begin!

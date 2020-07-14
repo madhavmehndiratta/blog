@@ -8,8 +8,9 @@ image: /assets/img/uploads/mr-robot-ctf/mr-robot.jpg
 optimized_image: /assets/img/uploads/mr-robot-ctf/mr-robot-optimized.jpg
 category: walkthrough
 tags: vulnhub boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: mr robot, mr robot vulnhub, mr robot walkthrough, mr robot try hack me, mr robot ctf, infosec articles
 ---
 
 Mr-Robot: 1 is one of vulnhub's CTF challenges, based on the favored TV series 'Mr Robot' (which is one of the best TV series). There are 3 hidden keys in the VM. Our objective is to locate all 3 keys.

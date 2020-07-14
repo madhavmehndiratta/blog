@@ -8,8 +8,9 @@ image: /assets/img/uploads/typo/typo.png
 optimized_image: /assets/img/uploads/typo/typo-optimized.png
 category: walkthrough
 tags: vulnhub boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: typo1, typo vulnhub, typo vulnhub walkthrough, typo walkthrough, typo 1 vulnhub, infosec articles, typo vulnhub writeup
 ---
 
 Typo:1 is another boot2root VM from Vulnhub. This machine is considered good for OSCP Preparation. I have add the machine to my hosts file, so Let's Begin!

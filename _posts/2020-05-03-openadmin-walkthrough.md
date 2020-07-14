@@ -8,8 +8,9 @@ image: /assets/img/uploads/openadmin/openAdmin.jpg
 optimized_image: /assets/img/uploads/openadmin/openAdmin-optimized.jpg
 category: walkthrough
 tags: hackthebox boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: hackthebox walkthrough, openadmin walkthrough, openadmin hackthebox, openadmin hackthebox walkthrough, open admin htb, infosec articles
 ---
 
 Today we will be doing OpenAdmin from Hack The Box. This machine was rated easy and good for beginners. This includes exploiting a vulnerable version of OpenNetAdmin, exploting some php files and then using nano for privilege escalation. 

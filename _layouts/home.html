@@ -177,7 +177,7 @@ layout: main
                 "mainEntityOfPage": "True",
                 "genre": "{{ post.category | capitalize }}",
                 "articleSection": "{{ post.category | capitalize }}",
-                "keywords": [{{ post.tags | join: '","' | append: '"' | prepend: '"' }}]
+                "keywords": [{{ post.keywords | join: '","' | append: '"' | prepend: '"' }}]
             }{% if forloop.last == false  %},{% endif %}
         {% endfor %}
         ]

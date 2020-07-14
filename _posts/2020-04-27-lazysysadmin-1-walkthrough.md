@@ -8,8 +8,9 @@ image: /assets/img/uploads/lazySysAdmin/lazy.jpg
 optimized_image: /assets/img/uploads/lazySysAdmin/lazy.jpg
 category: walkthrough
 tags: vulnhub boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: lazysysadmin walkthrough, vulnhub, lazysysadmin writeup, lazysysadmin vulnhub walkthrough, infosec articles
 ---
 
 Today we will be doing LazySysAdmin from Vulnhub. An easy boot2root machine created by 'Togie Mcdogie'. The machine truly stands up to its name. This machine was configured by a lazy system administrator and thus, one clear thing to be looking for is a misconfigured system. Lets dive in!

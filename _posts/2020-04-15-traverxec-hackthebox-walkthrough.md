@@ -8,8 +8,9 @@ image: /assets/img/uploads/traverxec/traverxec.jpg
 optimized_image: /assets/img/uploads/traverxec/traverxec.jpg
 category: walkthrough
 tags: hackthebox boot2root
-author:
+author: madhavmehndiratta
 paginate: false
+keywords: traverxec hack the box, hackthebox walkthrough, traverxec, htb, infosec articles, traverxec walkthrough, traverxec writeup
 ---
 
 
