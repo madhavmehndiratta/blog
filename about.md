@@ -16,4 +16,4 @@ Goals:
 PS- There are a lot more amazing ways to crack a system, and maybe you will find more exciting ways than listed. It's just to share the pleasure that I found in my journey, so enjoy my writeups.</p>
 
 <p algin="justify">
-Also, this blog is open to both appreciation and criticism. More topics and suggestions for writeups are most welcome. For feedbacks, you can contact me <a href="/contact">here.</a></p>
+Also, this blog is open to both appreciation and criticism. More topics and suggestions for writeups are most welcome. For feedbacks, you can contact me <a href="/contact">here</a> or send an email to <a href="mailto:contact@infosecarticles.com"> contact@infosecarticles.com.</a></p>

@@ -1,6 +1,6 @@
 # Site Settings
 name: InfoSec Articles
-title: Infosec Articles | Madhav Mehndiratta's Blog
+title: Infosec Articles - Madhav Mehndiratta's Blog
 description: Welcome to Infosec Articles! Over here you will find articles related to Information Security, challenge walkthroughs, tutorials, exploits and much more.
 tags:
   - infosec articles
@@ -13,7 +13,7 @@ tags:
   - infosec
   - cybersecurity
   - ctf
-email: madhavmehndiratta2k3@gmail.com
+email: contact@infosecarticles.com
 show_hero: true
 menu:
   - title: Home
