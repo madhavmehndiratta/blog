@@ -1,5 +1,5 @@
 ---
-date: 2020-07-20 05:20:12
+date: 2020-07-21 01:20:12
 layout: post
 title: "Investigator Vulnhub Walkthrough"
 subtitle:
@@ -20,7 +20,7 @@ Today I will be sharing a walkthrough of Investigator machine available on Vulnh
 I started the enumeration by running a port scan with Nmap, checking default scripts.
 
 ```r
-root@kali:~/Documents/vulnhub/investigator# nmap -sC -sV -oN nmap/intial 192.168.1.9
+root@kali:~# nmap -sC -sV -oN nmap/intial 192.168.1.9
 
 Starting Nmap 7.80 ( https://nmap.org )
 Nmap scan report for 192.168.1.9
@@ -50,7 +50,7 @@ $ sudo apt install adb
 After installing, we can connect the target machine to adb by using the <b>adb connect</b> command followed by the IP of the machine and we can also see the connected devices using <b>adb devices</b> command.
 
 ```r
-root@kali:~/Documents/vulnhub/investigator# adb connect 192.168.1.9
+root@kali:~# adb connect 192.168.1.9
 connected to 192.168.1.9:5555
 
 root@kali:~/Documents/vulnhub/investigator# adb devices
@@ -60,7 +60,7 @@ List of devices attached
 Once the device is connected, we can open a shell on the target machine via adb using <b> adb shell</b> command. We can then pivot to root using <b>su.</b>
 
 ```r
-root@kali:~/Documents/vulnhub/investigator# adb shell
+root@kali:~# adb shell
 uid=2000(shell) gid=2000(shell) groups=1003(graphics),1004(input),1007(log),1011(adb),1015(sdcard_rw),1028(sdcard_r),3001(net_bt_admin),3002(net_bt),3003(inet),3006(net_bw_stats)
 
 @x86:/ $ su
@@ -109,7 +109,7 @@ Now when you restart the machine, the login screen does not appear. We can now a
 We need to use adb again to remove this app. Use the <b>adb uninstall</b> command followed by the app name to uninstall any app. In this case, I'll be removing the app lock.
 
 ```r
-root@kali:~/Documents/vulnhub/investigator# adb uninstall com.martianmode.applock
+root@kali:~# adb uninstall com.martianmode.applock
 ```
 
 Once the app lock is uninstalled, restart the machine, Now it will not ask for any password and we can read the final flag in the Messages App.
