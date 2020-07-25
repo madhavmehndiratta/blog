@@ -14,7 +14,7 @@ keywords: traverxec hack the box, hackthebox walkthrough, traverxec, htb, infose
 ---
 
 
-Today we will be doing Traverxec from Hack The Box. This box was rated easy and good for beginners to practice penetration testing skills. For the initial foothold we had to exploit a webserver that was vulnerable to remote code execution and get a reverse shell back into our machine. For root, the user David had privilege to execute journalctl as root and we leveraged that to get root in the box. With that said let’s jump in.
+Today we will be doing Traverxec from Hack The Box. This box was rated easy and good for beginners to practice penetration testing skills. For the initial foothold we had to exploit a web server that was vulnerable to remote code execution and get a reverse shell back into our machine. For root, the user David had privilege to execute journalctl as root and we leveraged that to get root in the box. With that said let’s jump in.
 
 We begin our reconnaissance by running a port scan with Nmap, checking default scripts and testing
 for vulnerabilities.
@@ -41,11 +41,11 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 38.14 seconds
 ```
 
-We see that the port 80 is open an it is running <i>nostromo 1.9.6</i>. Looking at the port 80, we have a static website with nothing useful.
-
+We see that the port 80 is open and it is running <i>nostromo 1.9.6</i>. Looking at port 80, we have a static website with nothing useful.
 
 ## Initial Foothold:
-Now lets look on searchsploit if we have a vulnerable version of nostromo.
+
+Now let's look on searchsploit if we have a vulnerable version of nostromo.
 
 ```r
 m1m3@kali:~$ searchsploit nostromo
@@ -61,7 +61,7 @@ nostromo nhttpd 1.9.3 - Directory Traversal Remote Comma | exploits/linux/remote
 Shellcodes: No Result
 ```
 
-We have RCE available. Lets use the metasploit for it.
+We have RCE available. Let's use the metasploit for it.
 
 ```r
 msf5 > search nostromo

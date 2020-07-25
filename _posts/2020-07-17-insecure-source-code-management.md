@@ -15,7 +15,7 @@ keywords: insecure source code management, source code disclosure, source code d
 
 ## Introduction
 
-When attacking an website, obtaining its source code can be extremely helpful for constructing an exploit. This is because many bugs, like SQL injections, are way easier to find using static code analysis as compared to black-box testing.
+When attacking a website, obtaining its source code can be extremely helpful for constructing an exploit. This is because many bugs, like SQL injections, are way easier to find using static code analysis as compared to black-box testing.
 Obtaining a web application's source code also means getting a hold of all developer comments, hardcoded API keys, and all other sensitive data. So the source code of a web application should always be protected from public view. Many developers unknowingly upload the source code of their entire project to the internet, and this is where information leaks occur.
 
 ## Finding a .git Folder
@@ -34,7 +34,7 @@ If the directory listing is enabled, then you could directly browse the .git fol
 <img src="/assets/img/uploads/source-code-disclosure/directory-listing.png">
 </center>
 
-Another way is bruteforcing the directories using opensource tools such as dirb or dirsearch. They both look for .git 		folder. If automated tools are not allowed, simply go to web-app/.git (e.g. https://example.com/.git) on a browser. If you get a 404 error, then .git/ doesn’t exist on the application. But in some cases if you get a 403 Forbidden error, then it does! but not directly accessible if directory listing is disabled on the server.
+Another way is brute forcing the directories using open source tools such as dirb or dirsearch. They both look for .git 		folder. If automated tools are not allowed, simply go to web-app/.git (e.g. https://example.com/.git) on a browser. If you get a 404 error, then .git/ doesn’t exist on the application. But in some cases if you get a 403 Forbidden error, then it does! but not directly accessible if directory listing is disabled on the server.
 
 ## Extracting the Files Manually
 
@@ -100,7 +100,7 @@ git archive --format zip --output "source.zip" <master-hash>
 
 Now you will see a zip file named source.zip in the same directory. 
 
-## Automating The Proccess
+## Automating The Process
 
 Browsing .git/ manually is good for proof of concept, but it is also a tedious job. If you want to retrieve as many files as possible, even with directory listing disabled, you can use the tool named <a href="https://github.com/internetwache/GitTools">GitTools.</a> 
 
@@ -116,7 +116,7 @@ git log             # To see what other commits are there
 Now you can analyze the local repository manually. Try to look for other vulnerabilities using static code analysis, or credentials, authentication tokens, new endpoints, etc.
 ## Conclusion
 
-There are many famous websites which do not deny access to the .git/ folder therefore anyone can download their sourcecode and possibly other sensitive data. This issue is not hard to detect and mitigate, so take a minute to make sure that your webserver isn’t misconfigured.
+There are many famous websites which do not deny access to the .git/ folder therefore anyone can download their source code and possibly other sensitive data. This issue is not hard to detect and mitigate, so take a minute to make sure that your webserver isn’t misconfigured.
 
 That’s it! I hope you understood the concept of source code disclosure vulnerability and the risk associated with it. Thanks for reading. Stay tuned for similar tutorials and much more coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>

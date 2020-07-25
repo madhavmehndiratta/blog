@@ -13,7 +13,8 @@ paginate: false
 keywords: hackthebox walkthrough, openadmin walkthrough, openadmin hackthebox, openadmin hackthebox walkthrough, open admin htb, infosec articles
 ---
 
-Today we will be doing OpenAdmin from Hack The Box. This machine was rated easy and good for beginners. This includes exploiting a vulnerable version of OpenNetAdmin, exploting some php files and then using nano for privilege escalation. 
+Today we will be doing OpenAdmin from Hack The Box. This machine was rated easy and good for beginners. This includes exploiting a vulnerable version of OpenNetAdmin, exploiting some php files and then using nano for privilege escalation.
+
 ### Enumeration and Initial Foothold
 
 We begin our enumeration by running a port scan with Nmap, checking for open ports and default scripts.
@@ -73,7 +74,7 @@ OpenNetAdmin 18.1.1 - Remote Code Execution                   | exploits/php/web
 --------------------------------------- ---------------------------------------------------------
 ```
 
-For some reason, the exploit was not working for me, so instead I used copied the exploit from exploitdb. You can copy the following exploit and save it as <i>exploit.sh</i>
+For some reason, the exploit was not working for me, so instead I copied the exploit from the exploitdb. You can copy the following exploit and save it as <i>exploit.sh</i>
 
 ```sh
 # Exploit Title: OpenNetAdmin 18.1.1 - Remote Code Execution
@@ -112,7 +113,7 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 
 ### User Shell
 
-We managed to get a low privileged shell! Let's now go for user. Currently we are in <i>/opt/ona/www/</i>
+We managed to get a low privileged shell! Let's now go for the user. Currently we are in <i>/opt/ona/www/</i>
 
 ```r
 $ pwd                                   
@@ -183,7 +184,7 @@ jimmy
 joanna
 ```
 
-We can use the password we got to shh into jimmy.
+We can use the password we got to ssh into jimmy.
 
 ```r
 m1m3@kali:~$ ssh jimmy@10.10.10.171

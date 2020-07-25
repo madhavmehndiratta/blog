@@ -68,7 +68,7 @@ eval(function (p, a, c, k, e, r) {
 }('0 3(){$.4({5:"6",7:"8",9:\'/b/c/d/e/f\',g:0(a){1.2(a)},h:0(a){1.2(a)}})}', 18, 18, 'function|console|log|makeInviteCode|ajax|type|POST|dataType|json|url||api|invite|how|to|generate|success|error'.split('|'), 0, {
 }))
 ```
-Let’s first try running the <i>makeInviteCode</i> function. We can execute any function in the Console tab. Input the name of the function the you want to execute and press Enter key.
+Let’s first try running the <i>makeInviteCode</i> function. We can execute any function in the Console tab. Input the name of the function that you want to execute and press Enter key.
 
 <center><br>
 <img src="/assets/img/uploads/joinhackthebox/console.png">

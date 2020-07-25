@@ -20,7 +20,7 @@ Today I will be sharing a walkthrough of Investigator machine available on Vulnh
 I started the enumeration by running a port scan with Nmap, checking default scripts.
 
 ```r
-root@kali:~# nmap -sC -sV -oN nmap/intial 192.168.1.9
+root@kali:~# nmap -sC -sV -oN nmap/initial 192.168.1.9
 
 Starting Nmap 7.80 ( https://nmap.org )
 Nmap scan report for 192.168.1.9
@@ -41,7 +41,7 @@ Port 8080 was running a php webserver. Looking at it in the browser, there was s
 <img src="/assets/img/uploads/investigator/port8080.png">
 </center>
 
-I started a gobuster scan in the background but that didn't gave me any interesting directory. Then I moved to the next port 5555 for further enumeration. For connecting to this port you need to install <b>adb.</b> You can install it by using the following command:
+I started a gobuster scan in the background but that didn't give me any interesting directory. Then I moved to the next port 5555 for further enumeration. For connecting to this port you need to install <b>adb.</b> You can install it by using the following command:
 
 ```r
 $ sudo apt install adb

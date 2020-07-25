@@ -58,7 +58,7 @@ fsocity.dic
 key-1-of-3.txt
 ```
 
-BOOM! We just found a dictionary file as well as our first key. Lets grab our first key at <b>http://target_ip/key-1-of-3.txt</b>. Also lets download the dictionary file, it might be useful.
+BOOM! We just found a dictionary file as well as our first key. Let's grab our first key at <b>http://target_ip/key-1-of-3.txt</b>. Also lets download the dictionary file, it might be useful.
 
 Now let's use gobuster to search for directories we have.
 
@@ -136,17 +136,17 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-04-28 15:17:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished.
 ```
 
-Thats it we just gained access to the WordPress platform, with the username Elliot and the password ER28-0652! Now we need to find a way to get a reverse shell. 
+That's it we just gained access to the WordPress platform, with the username Elliot and the password ER28-0652! Now we need to find a way to get a reverse shell. 
 
 ### KEY-2-OF-3
 
-We can update a plugin with a php reverse shell to to gain access. I'll be using the php shell from <a href="https://github.com/pentestmonkey/php-reverse-shell">pentest monkey.</a>
+We can update a plugin with a php reverse shell to gain access. I'll be using the php shell from <a href="https://github.com/pentestmonkey/php-reverse-shell">pentest monkey.</a>
 
 <center><br>
 <img src="/assets/img/uploads/mr-robot-ctf/404plugin.png">
 </center>
 
-I've edited the 404.php Now our code will be executed if we go to any random url that doesn't exists. And we manage to get a reverse shell from the machine.
+I've edited the 404.php Now our code will be executed if we go to any random url that doesn't exist. And we manage to get a reverse shell from the machine.
 
 ```r
 m1m3@kali:~$ nc -lvnp 9001
@@ -171,7 +171,7 @@ daemon@linux:/home/robot$
 ```
 
 Also we have a <i>password.raw-md5</i> file in the home directory. This will be our way in!
-This can be cracked using any online md5 decryptor and we the password of robot user as <i>abcdefghijklmnopqrstuvwxyz</i>
+This can be cracked using any online md5 decrypter and we the password of robot user as <i>abcdefghijklmnopqrstuvwxyz</i>
 
 
 Now we can login as user robot using: 

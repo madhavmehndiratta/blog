@@ -69,7 +69,7 @@ m1m3@kali:~$ enum4linux 192.168.1.8
 <img src="/assets/img/uploads/stapler/users.png">
 </center>
 
-I added copied this into a file named users.txt and then separated the name of users to a separate file.
+I copied this into a file named users.txt and then separated the name of users to a separate file.
 
 ```r
 m1m3@kali:~$ cat users.txt | cut -d '\' -f2 | cut -d ' ' -f1 > user_list.txt
@@ -108,7 +108,7 @@ elly
 
 ## FTP Enumeration:
 
-Identifying vSFTP was running on Port 21, I tried to access by using an anonymous FTP login.
+Identifying vSFTP was running on Port 21, I tried to access it by using an anonymous FTP login.
 
 ```r
 m1m3@kali:~$ ftp 192.168.1.8
@@ -188,7 +188,7 @@ uid=1005(SHayslett) gid=1005(SHayslett) groups=1005(SHayslett)
 SHayslett@red:~$ 
 ```
 
-Then I checked if this user could execute any command as root but did not found anything.
+Then I checked if this user could execute any command as root but did not find anything.
 
 ```r
 SHayslett@red:~$ sudo -l
@@ -299,7 +299,7 @@ root@red:~# cat /root/flag.txt
 b6b545dc11b7a270f4bad23432190c75162c4a2b
 ```
 
-This is a very straight forward writeup, there are many other ways to pwn this machine. I will share a detailed writeup in coming future!
+This is a very straightforward writeup, there are many other ways to pwn this machine. I will share a detailed writeup in the coming future!
 
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>

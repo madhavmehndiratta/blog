@@ -51,7 +51,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 7.86 seconds
 ```
 
-We have http server running on 3 ports. I decided to look at the port 80 first. The index.txt at port 80 shows all the challenges we have to solve in this machine.
+We have http server running on 3 different ports. I decided to look at the port 80 first. The index.txt at port 80 shows all the challenges we have to solve in this machine.
 
 <center><br>
 <img src="/assets/img/uploads/muzzybox/index.png">
@@ -65,25 +65,25 @@ We have http server running on 3 ports. I decided to look at the port 80 first. 
 <img src="/assets/img/uploads/muzzybox/port3000.png">
 </center>
 
-There is a sample ID Card image at <i>http://muzzybox:9633/idcard.png</i> which has a columnn for Name, Position and Access Level.
+There is a sample ID Card image at <i>http://muzzybox:9633/idcard.png</i> which has a column for Name, Position and Access Level.
 
 <center><br>
 <img src="/assets/img/uploads/muzzybox/idcard-sample.png">
 </center>
 
-First I tried to uplaod the idcard as such to understand the workflow of the web application. I found that the application reads all the text written on the idcard, and our access level comes to be unauthorized.
+First I tried to upload the id card as such to understand the workflow of the web application. I found that the application reads all the text written on the idcard, and our access level comes to be unauthorized.
 
 <center><br>
 <img src="/assets/img/uploads/muzzybox/idcard-upload.png">
 </center>
 
-If we look again at the description of the challenge, we can see that only <b>Principal</b> is authroized.
+If we look again at the description of the challenge, we can see that only the <b>Principal</b> is authorized.
 
 <center><br>
 <img src="/assets/img/uploads/muzzybox/challenge1.png">
 </center>
 
-To gain access, to the library, I downlaoded the sample ID card image, and changed the 'Postion' to <b>Principal</b> and 'Access Level' to <b>authorized</b> in an image editing software (I used GIMP for that) 
+To gain access, to the library, I downloaded the sample ID card image, and changed the 'Position' to <b>Principal</b> and 'Access Level' to <b>authorized</b> in an image editing software (I used GIMP for that) 
 
 <center><br>
 <img src="/assets/img/uploads/muzzybox/idcard.png">
@@ -98,7 +98,7 @@ To gain access, to the library, I downlaoded the sample ID card image, and chang
 
 ## Challenge 2
 
-The next challenge is to exploit their new webiste which is currently under maintenance. The goal was to list the current directory and read the flag.
+The next challenge is to exploit their new website which is currently under maintenance. The goal was to list the current directory and read the flag.
 
 <center><br>
 <img src="/assets/img/uploads/muzzybox/challenge2.png">
@@ -216,7 +216,7 @@ Last login: Thu May 28 22:05:38 2020 from 192.168.1.7
 nsctf@muzzy:~$ id
 uid=1004(nsctf) gid=1004(nsctf) groups=1004(nsctf)
 ```
-<p align="justify"> Next was the Privilege escalation, I found that the user cannot run any command as root. I remembered from the introduction that the root user was using sudo as well as bash with the ls command. So I thought that the path variables has some role to play in this and read the <b>$PATH</b> variable. </p>
+<p align="justify"> Next was the Privilege escalation, I found that the user cannot run any command as root. I remembered from the introduction that the root user was using sudo as well as bash with the ls command. So I thought that the path variables had some role to play in this and read the <b>$PATH</b> variable. </p>
 
 ```r
 nsctf@muzzy:~$ sudo -l
@@ -225,7 +225,7 @@ Sorry, user nsctf may not run sudo on muzzy.
 nsctf@muzzy:~$ echo $PATH
 /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 ```
-After this, I enumerated the ls command and found that directory <b>/usr/local/sbin</b> was writable by the user nstcf.
+After this, I enumerated the ls command and found that the directory <b>/usr/local/sbin</b> was writable by the user nstcf.
 
 ```r
 nsctf@muzzy:~$ which ls

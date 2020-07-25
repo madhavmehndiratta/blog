@@ -13,7 +13,7 @@ paginate: false
 keywords: lazysysadmin walkthrough, vulnhub, lazysysadmin writeup, lazysysadmin vulnhub walkthrough, infosec articles
 ---
 
-Today we will be doing LazySysAdmin from Vulnhub. An easy boot2root machine created by 'Togie Mcdogie'. The machine truly stands up to its name. This machine was configured by a lazy system administrator and thus, one clear thing to be looking for is a misconfigured system. Lets dive in!
+Today we will be doing LazySysAdmin from Vulnhub. An easy boot2root machine created by 'Togie Mcdogie'. The machine truly stands up to its name. This machine was configured by a lazy system administrator and thus, one clear thing to be looking for is a misconfigured system. Let's dive in!
 
 We begin our reconnaissance by running a port scan with Nmap, checking default scripts.
 
@@ -37,7 +37,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 24.93 seconds
 ```
 
-We see a mysql port open and Samba smd running on port 139 and 445. We also have a webserver running at port 80.
+We see a mysql port open and Samba smd running on port 139 and 445. We also have a web server running at port 80.
 
 <center><br>
 <img src="/assets/img/uploads/lazySysAdmin/port80.png">

