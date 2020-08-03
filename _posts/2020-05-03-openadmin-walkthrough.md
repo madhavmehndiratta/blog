@@ -355,7 +355,7 @@ User joanna may run the following commands on openadmin:
     (ALL) NOPASSWD: /bin/nano /opt/priv
 ```
 
-Searching on <a href="https://gtfobins.github.io/gtfobins/nano/" rel=”nofollow”>GTFO Bins,</a> I found that we can exploit this by open the file with nano using:
+Searching on <a href="https://gtfobins.github.io/gtfobins/nano/">GTFO Bins,</a> I found that we can exploit this by open the file with nano using:
 
 `sudo nano /opt/priv`
 
@@ -370,4 +370,4 @@ Then press <i>Ctrl + R</i> and then <i>Ctrl + X</i>. After that enter the follow
 That’s it! Thanks for reading! Make sure to stay tuned for more upcoming Hack The Box writeups!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/Meugraphics" rel=”nofollow”>Marlon Urrutia.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/Meugraphics">Marlon Urrutia.</a>

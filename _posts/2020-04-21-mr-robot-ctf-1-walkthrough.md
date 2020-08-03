@@ -140,7 +140,7 @@ That's it we just gained access to the WordPress platform, with the username Ell
 
 ### KEY-2-OF-3
 
-We can update a plugin with a php reverse shell to gain access. I'll be using the php shell from <a href="https://github.com/pentestmonkey/php-reverse-shell" rel=”nofollow”>pentest monkey.</a>
+We can update a plugin with a php reverse shell to gain access. I'll be using the php shell from <a href="https://github.com/pentestmonkey/php-reverse-shell">pentest monkey.</a>
 
 <center><br>
 <img src="/assets/img/uploads/mr-robot-ctf/404plugin.png">
@@ -200,7 +200,7 @@ robot@linux:~$ find / -user root -perm -4000 -exec ls -ldb {} \; | grep -v proc
 ...
 ```
 
-We can see that nmap is installed in the machine, this can be our way to root. Looking up in the <a href='https://gtfobins.github.io/gtfobins/nmap/' rel=”nofollow”>GTFO Bins,</a> I found we can get root using:
+We can see that nmap is installed in the machine, this can be our way to root. Looking up in the <a href='https://gtfobins.github.io/gtfobins/nmap/'>GTFO Bins,</a> I found we can get root using:
 
 ```r
 robot@linux:~$ nmap --interactive                                 
@@ -220,4 +220,4 @@ wc -c /root/key-3-of-3.txt
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/Ty_poe" rel=”nofollow”>Tyler Pate.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/Ty_poe">Tyler Pate.</a>

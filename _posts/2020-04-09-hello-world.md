@@ -22,4 +22,4 @@ Furthermore, I will be sharing with you guys some of my own code, challenge walk
 - Document what I learn.
 - Share knowledge that might help others.
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/magicmuir" rel=”nofollow”>Cody Muir.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/magicmuir">Cody Muir.</a>

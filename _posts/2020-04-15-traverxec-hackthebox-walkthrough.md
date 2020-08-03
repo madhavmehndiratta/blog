@@ -186,4 +186,4 @@ uid=0(root) gid=0(root) groups=0(root)
 That’s it! Thanks for reading! Make sure to stay tuned for more upcoming Hack The Box writeups!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/kangle" rel=”nofollow”>Kanye.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/kangle">Kanye.</a>

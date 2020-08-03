@@ -176,7 +176,7 @@ www-data@lemonsqueezy:/var/www$
 
 ## Root Shell
 
-For further enumeration, I uploaded the <a href="https://github.com/DominicBreuker/pspy" rel=”nofollow”>pspy script</a> to look for running processes. To transfer files, I started a <b>python http server</b> on my host machine, and then downloaded it using <b>wget</b> on the target machine.
+For further enumeration, I uploaded the <a href="https://github.com/DominicBreuker/pspy">pspy script</a> to look for running processes. To transfer files, I started a <b>python http server</b> on my host machine, and then downloaded it using <b>wget</b> on the target machine.
 
 ```r
 root@kali:~# python3 -m http.server 8000
@@ -254,5 +254,5 @@ NvbWV0aW1lcyBhZ2FpbnN0IHlvdXIgd2lsbC4=
 
 <p align="justify"> That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future! If you have any queries, you can contact me <a href="/contact">here.</a> </p>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/ecaterinar" rel=”nofollow”>Ekaterina Rogova .</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/ecaterinar">Ekaterina Rogova .</a>
 

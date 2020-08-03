@@ -407,4 +407,4 @@ Good job here our secure cold wallet flag{s4t0sh1n4k4m0t0}
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/benbely" rel=”nofollow”>Ben Bely.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/benbely">Ben Bely.</a>

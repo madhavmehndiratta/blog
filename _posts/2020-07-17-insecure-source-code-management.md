@@ -102,7 +102,7 @@ Now you will see a zip file named source.zip in the same directory.
 
 ## Automating The Process
 
-Browsing .git/ manually is good for proof of concept, but it is also a tedious job. If you want to retrieve as many files as possible, even with directory listing disabled, you can use the tool named <a href="https://github.com/internetwache/GitTools" rel=”nofollow”>GitTools.</a> 
+Browsing .git/ manually is good for proof of concept, but it is also a tedious job. If you want to retrieve as many files as possible, even with directory listing disabled, you can use the tool named <a href="https://github.com/internetwache/GitTools">GitTools.</a> 
 
 ```r
 madhav@anton:~$ ./gitdumper.sh https://example.com/.git/ dest-dir/
@@ -121,4 +121,4 @@ There are many famous websites which do not deny access to the .git/ folder ther
 That’s it! I hope you understood the concept of source code disclosure vulnerability and the risk associated with it. Thanks for reading. Stay tuned for similar tutorials and much more coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/fabric8" rel=”nofollow”>Fabricio Rosa Marques.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/fabric8">Fabricio Rosa Marques.</a>

@@ -180,7 +180,7 @@ There is a simple web application running at port 15000 which displays the name 
 <img src="/assets/img/uploads/muzzybox/port15000.png">
 </center>
 
-To get a shell on the target machine by exploiting the <abbr title="Server Side Template Injection">SSTI</abbr> Vulnerability, I used a tool named <a href="https://github.com/epinna/tplmap" rel=”nofollow”>tplmap.</a> This is available freely on the Github.
+To get a shell on the target machine by exploiting the <abbr title="Server Side Template Injection">SSTI</abbr> Vulnerability, I used a tool named <a href="https://github.com/epinna/tplmap">tplmap.</a> This is available freely on the Github.
 
 ```r
 root@kali:~/tplmap# python tplmap.py -u "http://muzzybox:15000/page?name=*" --os-shell
@@ -268,4 +268,4 @@ N$CtF{8!NG000!!!__Y0U_D!D_!T_80!!!}
 
 <p align="justify"> That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future! If you have any queries, you can contact me <a href="/contact">here.</a> </p>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/Jimmy2812" rel=”nofollow”>Manh Hung.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/Jimmy2812">Manh Hung.</a>
