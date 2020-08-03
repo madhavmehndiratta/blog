@@ -151,7 +151,7 @@ Then I went to the <b>Filelist Panel</b> to see if I can upload a php backdoor. 
 <img src="/assets/img/uploads/typo/file-extensions.png">
 </center>
 
-This time, I was able to upload the backdoor. I used the php-reverse-shell from <a href="https://github.com/pentestmonkey/php-reverse-shell">pentest monkey.</a>
+This time, I was able to upload the backdoor. I used the php-reverse-shell from <a href="https://github.com/pentestmonkey/php-reverse-shell" rel=”nofollow”>pentest monkey.</a>
 
 <center><br>
 <img src="/assets/img/uploads/typo/shell-upload.png">
@@ -236,4 +236,4 @@ $2y$12$EUztpmoFH8LjEzUBVyNKw.9AKf37uZWPxJp.A3aap2ff0LbLYZrF
 ```
 <p align="justify"> That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future! If you have any queries, you can contact me <a href="/contact">here.</a> </p>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/freebird">Alexandr Ivanov.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/freebird" rel=”nofollow”>Alexandr Ivanov.</a>

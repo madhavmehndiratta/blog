@@ -304,4 +304,4 @@ This is a very straightforward writeup, there are many other ways to pwn this ma
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/Meugraphics">Marlon Urrutia.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/Meugraphics" rel=”nofollow”>Marlon Urrutia.</a>

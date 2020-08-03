@@ -14,7 +14,7 @@ keywords: hackthebox, hackthebox invite code, how to hack hackthebox, hackthebox
 ---
 
 <p align="justify">
-For those who do not know about <a href="https://www.hackthebox.eu/">Hack The Box,</a> it is an online platform that allows you to test and improve your skills in Penetration Testing. The platform contains assorted challenges that are updated continuously. Some of the challenges simulate real world scenarios, while others are more like CTFs. Needless to say, Hack the box is beyond resourceful if you want to level up your pentesting skills; especially as a beginner. </p>
+For those who do not know about <a href="https://www.hackthebox.eu/" rel=”nofollow”>Hack The Box,</a> it is an online platform that allows you to test and improve your skills in Penetration Testing. The platform contains assorted challenges that are updated continuously. Some of the challenges simulate real world scenarios, while others are more like CTFs. Needless to say, Hack the box is beyond resourceful if you want to level up your pentesting skills; especially as a beginner. </p>
 
 <center><br>
 <img src="/assets/img/uploads/joinhackthebox/hackthebox.png">
@@ -23,9 +23,9 @@ For those who do not know about <a href="https://www.hackthebox.eu/">Hack The Bo
 <p align="justify">
 But the fun part is that you cannot just go to the site and start using it. You have to take the Invite Challenge first and hack your way in to get the invitation code and create an account on the website. This sounds intimidating right ? Don’t worry, this article will help you to achieve this goal. However, I highly recommend that you first try yourself to hack in(on your own), and only use this article as a guide in case you need help. </p>
 
-First, visit the official <a href="https://www.hackthebox.eu/">Hack the Box</a> website. As you scroll down to read more information, you will see a join button. 
+First, visit the official <a href="https://www.hackthebox.eu/" rel=”nofollow”>Hack the Box</a> website. As you scroll down to read more information, you will see a join button. 
 
-This will take you to the <a href="https://www.hackthebox.eu/invite"> invite challenge.</a>
+This will take you to the <a href="https://www.hackthebox.eu/invite" rel=”nofollow”> invite challenge.</a>
 
 <center><br>
 <img src="/assets/img/uploads/joinhackthebox/invitepage.png">
@@ -108,7 +108,7 @@ m1m3@ubuntu:~$ echo RUJTTVktUlVCTUktSERCSk4tSUNSRUMtWVJVTUk= | base64 -d
 EBSMY-RUBMI-HDBJN-ICREC-YRUMI
 ```
 
-Now we have our invitation code. You can simply go to the <a href="https://www.hackthebox.eu/invite">invite page,</a> and submit the invitation code you got.
+Now we have our invitation code. You can simply go to the <a href="https://www.hackthebox.eu/invite" rel=”nofollow”>invite page,</a> and submit the invitation code you got.
 
 <center><br>
 <img src="/assets/img/uploads/joinhackthebox/congratulations.png">
@@ -119,4 +119,4 @@ Now you can scroll down and register on the website. Also, remember that simply 
 That’s it! Thanks for reading. Stay tuned for similar tutorials and much more coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/fengquan">Fengquan Li.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/fengquan" rel=”nofollow”>Fengquan Li.</a>

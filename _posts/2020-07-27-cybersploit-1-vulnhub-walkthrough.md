@@ -130,7 +130,7 @@ itsskv@cybersploit-CTF:~$ cat flag2.txt
 01100111 01101111 01101111 01100100 00100000 01110111 01101111 01110010 01101011 00100000 00100001 00001010 01100110 01101100 01100001 01100111 00110010 00111010 00100000 01100011 01111001 01100010 01100101 01110010 01110011 01110000 01101100 01101111 01101001 01110100 01111011 01101000 01110100 01110100 01110000 01110011 00111010 01110100 00101110 01101101 01100101 00101111 01100011 01111001 01100010 01100101 01110010 01110011 01110000 01101100 01101111 01101001 01110100 00110001 01111101
 ```
 
-We can easily decode it using <a href="https://gchq.github.io/CyberChef/">Cyber Chef</a> and read our second flag!
+We can easily decode it using <a href="https://gchq.github.io/CyberChef/" rel=”nofollow”>Cyber Chef</a> and read our second flag!
 
 <center><br>
 <img src="/assets/img/uploads/cybersploit-1/cyberchef.png">
@@ -145,7 +145,7 @@ itsskv@cybersploit-CTF:~$ uname -a
 Linux cybersploit-CTF 3.13.0-32-generic #57~precise1-Ubuntu SMP Tue Jul 15 03:50:54 UTC 2014 i686 i686 i386 GNU/Linux
 ```
 
-I decided to go with <a href="https://www.exploit-db.com/exploits/37292">this</a> exploit. Just download and compile this exploit in the target machine and execute the binary.
+I decided to go with <a href="https://www.exploit-db.com/exploits/37292" rel=”nofollow”>this</a> exploit. Just download and compile this exploit in the target machine and execute the binary.
 
 ```r
 itsskv@cybersploit-CTF:~$ gcc 37292.c -o exploit
@@ -188,4 +188,4 @@ Thanks !
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>
 
-NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/benbely">Mia Ditmanson.</a>
+NOTE: The awesome artwork used in this article was created by <a href="https://dribbble.com/benbely" rel=”nofollow”>Mia Ditmanson.</a>
