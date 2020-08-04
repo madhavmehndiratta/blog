@@ -78,6 +78,9 @@
 
         {% include subscription.html %}
         {% include share.html %}
+        {% if page.author %}
+            {% include author.html %}
+        {% endif %}
         {% include footer.html %}
 
         {% assign author = site.authors | where: "name", post.author | first %}
