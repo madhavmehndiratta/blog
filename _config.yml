@@ -1,7 +1,7 @@
 # Site Settings
 name: InfoSec Articles
-title: Infosec Articles - Madhav Mehndiratta's Blog
-description: Welcome to Infosec Articles! Over here you will find articles related to Information Security, challenge walkthroughs, tutorials, exploits and much more.
+title: InfoSec Articles - Non-Profit InfoSec Community
+description: Welcome to InfoSec Articles! Over here you will find articles related to Information Security, challenge walkthroughs, tutorials, exploits and much more.
 tags:
   - infosec articles
   - hacking articles
@@ -28,11 +28,9 @@ menu:
 
 # Social Media Settings
 # Remove the item if you don't need it
-github_username: madhavmehndiratta
-twitter_username: 0xMadhav
-instagram_username: madhavmehndiratta
-linkedin_username: madhavmehndiratta
-
+twitter_username: infosecarticles
+facebook_username: infosecarticles
+instagram_username: infosecarticles
 
 # Posts Settings
 show_time_bar: false
