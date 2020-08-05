@@ -78,7 +78,7 @@
 
         {% include subscription.html %}
         {% include share.html %}
-        {% if page.author %}
+        {% if page.author and page.author != "madhavmehndiratta" %}
             {% include author.html %}
         {% endif %}
         {% include footer.html %}
