@@ -25,7 +25,8 @@ As usual I started with nmap to check for open ports and services running in the
 I started my enumeration from port 80 and found a website that is not reachable because we need to edit the host name in <b>/etc/hosts</b> file.
 
 I again opened the website and confirmed that this website is developed using wordpress and without wasting my time, I performed a wpscan using the following command:<br>
-<b>wpscan --url http://sunset-midnight --enumerate </b>
+
+<b>wpscan --url http://sunset-midnight --enumerate p</b>
 
 <img src="/assets/img/uploads/sunset-midnight/wpscan.webp">
 
