@@ -17,22 +17,28 @@ Today I will be sharing a walkthrough of sunset:midnight, a boot2root machine wh
 
 ## Initial Enumeration
 
-As usual I started with nmap to check for open ports and services running in the system using the following command:<br>
-<b>nmap -sC -sV -Pn -p- -T4 --max-rate=1000 192.168.1.182</b>
+As usual I started with nmap to check for open ports and services running in the system using the following command:
 
+```r
+nmap -sC -sV -Pn -p- -T4 --max-rate=1000 192.168.1.182
+```
 <img src="/assets/img/uploads/sunset-midnight/nmap.webp">
 
 I started my enumeration from port 80 and found a website that is not reachable because we need to edit the host name in <b>/etc/hosts</b> file.
 
-I again opened the website and confirmed that this website is developed using wordpress and without wasting my time, I performed a wpscan using the following command:<br>
+I again opened the website and confirmed that this website is developed using wordpress and without wasting my time, I performed a wpscan using the following command:
 
-<b>wpscan --url http://sunset-midnight --enumerate p</b>
+```r
+wpscan --url http://sunset-midnight --enumerate p
+```
 
 <img src="/assets/img/uploads/sunset-midnight/wpscan.webp">
 
-I started to search about this plugin and found that it is vulnerable to SQL injection but I don't like SQL injection specially using the tool sqlmap, So I decided to do a bruteforce attack against mysql login with user root and using the dictionary <b>rockyou.txt.</b><br>
-<b>hydra -l root -P ../rockyou.txt mysql://192.168.1.182</b>
+I started to search about this plugin and found that it is vulnerable to SQL injection but I don't like SQL injection specially using the tool sqlmap, So I decided to do a bruteforce attack against mysql login with user root and using the dictionary <b>rockyou.txt.</b>
 
+```r
+hydra -l root -P ../rockyou.txt mysql://192.168.1.182
+```
 <img src="/assets/img/uploads/sunset-midnight/hydra.webp">
 
 Awesome! That's great. I found the password very quickly and now we can login into mysql as a root user.
@@ -67,9 +73,11 @@ After some enumeration I found the password of user <b>jose</b> and using that p
 
 ## Root Shell
 
-After that I started to search for SUID binaries and found an interesting one using the following command: <br>
-<b>find / -perm -u=s -type f 2>/dev/null</b>
+After that I started to search for SUID binaries and found an interesting one using the following command:
 
+```r
+find / -perm -u=s -type f 2>/dev/null
+```
 <img src="/assets/img/uploads/sunset-midnight/suid.webp">
 
 Next, using the strings command on this binary I found that it uses the service command but without using the full path of the service command. So now we can change the PATH variable and will gain access to the root shell.
