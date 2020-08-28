@@ -76,8 +76,12 @@ collections:
         displayFields: ["title"]
       - label: "Tags"
         name: "tags"
+        required: false
+        hint: "Separate with commas. These will also be displayed on the blog."
+      - label: "Keywords"
+        name: "keywords"
+        required: false
         hint: "Separate with commas. These will also be used as keywords for search engines."
-        widget: "list"
       - label: "Author"
         name: "author"
         widget: "relation"
