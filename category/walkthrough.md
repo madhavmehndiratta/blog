@@ -1,6 +1,6 @@
 ---
 layout: category
-title: walkthrough
+title: Walkthrough
 slug: walkthrough
 description: A category for walkthrough's.
 ---
