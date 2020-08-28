@@ -3,14 +3,14 @@ date: 2020-08-27 01:55:11
 layout: post
 title: "Assembly Language Series: 0x02"
 subtitle:
-description: Assembly Language
+description: This article is the second part of the Assembly Language Series. In this we will complete the disassembly of our Hello World program.
 image: /assets/img/uploads/assembly-02/robot.jpg
 optimized_image: /assets/img/uploads/assembly-02/robot-optimized.jpg
 category: exploitation
 tags: binary-exploitation
 author: yashsaxena
 paginate: false
-keywords: 
+keywords: assembly, assembly language tutorial, disassembly hello world, infosec articles, assembly language series, disassembly using gdb, assembly language introduction, binary exploitaiton
 ---
 
 Today I will be continuing the topic which I published in the last article of the Assembly Language Series. First let's recall what I have done till now. In the last article, I have discussed different types of useful registers like <b>EBP, ESP, EIP</b> and we tried to understand some of the instructions using gdb and according to the last article this is the scenario we have right now. If you have not read that article yet, I recommend reading it first <a href="https://infosecarticles.com/assembly-language-series-0x01/">here.</a>  
