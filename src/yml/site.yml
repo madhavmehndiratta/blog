@@ -1,14 +1,22 @@
-name: Jekflix
-title: Jekflix | A blog theme for Jekyll
-description: Jekflix is a template for Jekyll inspired by Netflix and made by Thiago Rossener.
+name: InfoSec Articles
+title: InfoSec Articles - Madhav Mehndiratta's Blog
+description: Welcome to InfoSec Articles! Over here you will find articles
+  related to Information Security, challenge walkthroughs, tutorials, exploits
+  and much more.
 tags:
+  - infosec articles
+  - hacking articles
+  - information-security
+  - infosecarticles
+  - madhavmehndiratta
   - blog
-  - template
-  - jekyll
-  - theme
-  - netlify
-email: youremail@xyz.com
-disqus_username: disqus_username
+  - ethical-hacking
+  - infosec
+  - vulnhub
+  - vulnhub walkthrough
+  - cybersecurity
+  - ctf
+  - vulnhub ctf
 show_hero: true
 menu:
   - title: Home
@@ -17,5 +25,5 @@ menu:
     url: /about
   - title: Contact
     url: /contact
-  - title: Feed
-    url: /feed.xml
+email: contact@infosecarticles.com
+disqus_username: disqus_username
