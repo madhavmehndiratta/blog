@@ -10,7 +10,7 @@ category: walkthrough
 tags: vulnhub boot2root
 author: madhavmehndiratta
 paginate: false
-keywords:
+keywords: vulnhub, greenoptic ctf, photographer vulnhub walkthrough, photographer 1 vulnhub, photographer vulnhub, photographer walkthrough, photographer writeup, infosecarticles, infosec articles
 ---
 
 Today I will be sharing a walkthrough of Photographer:1 which is a boot2root machine available on Vulnhub. There are two flags and our goal is to read all of them. This includes enumerating samba to find some login information and then exploiting a CVE to upload a php shell and then exploiting a SUID to gain a root shell. I've added the IP to my hosts file, so Let's Begin!
