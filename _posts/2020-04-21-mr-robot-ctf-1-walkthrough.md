@@ -44,9 +44,7 @@ Nmap done: 1 IP address (1 host up) scanned in 19.91 seconds
 <br>
 We see a ssh port open and ports 80 and 443 are open. Let's fire up our browser and see what's running on port 80.
 
-<center><br>
 <img src="/assets/img/uploads/mr-robot-ctf/port80.png">
-</center>
 
 ### KEY-1-OF-3
 
@@ -100,9 +98,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 We see a lot of directories here. Also, we can see this site is running wordpress. So let's try bruteforcing the <i>/wp-login</i> with the dictionary file we have. Let's fire up burp to intercept the login request. I'll try a random username and password.
 
-<center><br>
 <img src="/assets/img/uploads/mr-robot-ctf/burp.png">
-</center>
 
 And we got this:<br>
 <i>log=admin&pwd=admin&wp-submit=Log+In</i>
@@ -142,9 +138,7 @@ That's it we just gained access to the WordPress platform, with the username Ell
 
 We can update a plugin with a php reverse shell to gain access. I'll be using the php shell from <a href="https://github.com/pentestmonkey/php-reverse-shell">pentest monkey.</a>
 
-<center><br>
 <img src="/assets/img/uploads/mr-robot-ctf/404plugin.png">
-</center>
 
 I've edited the 404.php Now our code will be executed if we go to any random url that doesn't exist. And we manage to get a reverse shell from the machine.
 

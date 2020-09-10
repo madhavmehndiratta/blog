@@ -50,9 +50,7 @@ Nmap done: 1 IP address (1 host up) scanned in 7.35 seconds
 ```
 We see a ssh port open and a port 80 open which is running an Apache 2.2.22 web server. Looking at port 80 on the web browser, we see a GIF. Looking at the page source, I found a username <b>itsskv.</b> This might be useful in future! 
 
-<center><br><br>
 <img src="/assets/img/uploads/cybersploit-1/username.png">
-</center>
 
 This web application is not much functional, so next I decided to run a gobuster scan to look for hidden pages.
 
@@ -85,9 +83,7 @@ Finished
 
 The hacker page is simply the GIF we see in the home page but robots or robots.txt has some interesting information.
 
-<center><br>
 <img src="/assets/img/uploads/cybersploit-1/robots.png">
-</center>
 
 It contains some string which is most probably base64, after decoding it, we can read our first flag! That was easy!
 
@@ -132,9 +128,7 @@ itsskv@cybersploit-CTF:~$ cat flag2.txt
 
 We can easily decode it using <a href="https://gchq.github.io/CyberChef/">Cyber Chef</a> and read our second flag!
 
-<center><br>
 <img src="/assets/img/uploads/cybersploit-1/cyberchef.png">
-</center>
 
 ## Privilege Escalation
 

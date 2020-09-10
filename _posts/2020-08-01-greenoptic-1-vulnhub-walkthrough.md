@@ -68,9 +68,7 @@ We can see many ports open, let's break them one by one.
 
 I started the enumeration on port 80 first because I find it easy. Looking at port 80, we have a website which is providing broadband services.
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/port80.png">
-</center>
 
 I tried looking at the page source code, and other links on the website but did not find anything interesting. So next I started a gobuster scan to look for hidden directories.
 
@@ -105,21 +103,15 @@ Finished
 
 I went to the <b>/account</b> directory and found a login page. I tried logging in with some random usernames and passwords but was unable to login. But I noticed a <b>include</b> parameter in the URL that seemed to be interesting.
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/account.png">
-</center>
 
 Let's open it in Burp Suite to see if we can find a <abbr title="Local File Inclusion">LFI</abbr> vulnerability in this parameter. Set up the Burp proxy in your browser and after capturing the request, press <b>Ctrl+R</b> to send this request to repeater.
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/request.png">
-</center>
 
 If we change the <b>cookiewarning</b> part of the include request to a typical LFI payload like <b>"../../../../etc/passwd"</b> we can see it traverses back through the /var/www/html directory and then reads <b>/etc/passwd.</b>
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/repeater.png">
-</center>
 
 This worked perfectly but still I was unable to find a way to get a shell using this vulnerability. So I went for further enumeration.
 
@@ -127,9 +119,7 @@ This worked perfectly but still I was unable to find a way to get a shell using 
 
 I went with the Webmin Miniserv running on port 10000. When to try to access it on the browser, we get an error, which leaks a subdomain.
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/webmin.png">
-</center>
 
 I added this hostname to my hosts file and now I was able to view the webmin login page. But unfortunately I got no clues there. So next I started enumerating port 53 to see if I can find some other subdomains. Since this is listening on TCP, I used the <b>dig axfr</b> command to look for other subdomains.
 
@@ -161,15 +151,11 @@ root@kali:~# cat /etc/hosts
 ```
 But when I tried opening it in the browser, it asked for a username and a password. 
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/recoveryplan.png">
-</center>
 
 Mostly there is a <b>.htaccess</b> file which controls such authentications and a <b>.htpasswd</b> file which stores the password. I exploited the LFI found in the account page to read the <b>.htpasswd</b> file and got a hashed password.
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/hash.png">
-</center>
 
 I saved this hash into a text file and used <b>John</b> to crack the hash.
 
@@ -192,21 +178,15 @@ Session completed
 ```
 Now we can login into the recoveryplan using the username <b>staff</b> and password <b>wheeler.</b> After logging in, we see a phpBB running on the website. phpBB is a free open source bulletin board software. It allows you to kind of share messages and announcements within whatever group of people you allow it.
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/php-bb.png">
-</center>
 
 If we look at the latest post, we see that the user is discussing the latest attack on their company and also shares a zip file named <b>dpi.zip</b> and the password of this zip file has been emailed to a user <b>Sam.</b>
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/message.png">
-</center>
 
 After searching on the internet, I found that all the mails are stored in the <b>/var/mail</b> directory. So I used burpsuite again to read the contents of <b>/var/mail/sam</b>
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/mail.png">
-</center>
 
 Now I downloaded the zip file and used the password <b>HelloSunshine123</b> to extract the zip file. After extracting, we get a <b>dpi.pcap</b> file.
 
@@ -225,9 +205,7 @@ Archive:  dpi.zip
 ```
 I opened the file in <b>Wireshark</b> and started analyzing the traffic. While analyzing, I found the FTP credentials for user <b>Alex.</b>
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/ftp-passwd.png">
-</center>
 
 Generally FTP password is same as the password of the user, which means we can login as user <b>Alex</b> via SSH using the username <b>alex</b> and password <b>FwejAASD1</b> and read the flag for the user.
 
@@ -259,14 +237,11 @@ alex@greenoptic.vms password:
 
 After opening Wireshark, I started capturing traffic on <b>any</b> and found some SMTP authentication which repeats itself after every few minutes.
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/wireshark.png">
-</center>
+
 On inspecting the packet, we can see a password which is encoded into base64.
 
-<center><br>
 <img src="/assets/img/uploads/greenoptic/root-passwd.png">
-</center>
 
 After decoding the hash, we get the password for root
 

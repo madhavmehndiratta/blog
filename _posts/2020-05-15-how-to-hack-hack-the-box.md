@@ -16,9 +16,7 @@ keywords: hackthebox, hackthebox invite code, how to hack hackthebox, hackthebox
 <p align="justify">
 For those who do not know about <a href="https://www.hackthebox.eu/">Hack The Box,</a> it is an online platform that allows you to test and improve your skills in Penetration Testing. The platform contains assorted challenges that are updated continuously. Some of the challenges simulate real world scenarios, while others are more like CTFs. Needless to say, Hack the box is beyond resourceful if you want to level up your pentesting skills; especially as a beginner. </p>
 
-<center><br>
 <img src="/assets/img/uploads/joinhackthebox/hackthebox.png">
-</center>
 
 <p align="justify">
 But the fun part is that you cannot just go to the site and start using it. You have to take the Invite Challenge first and hack your way in to get the invitation code and create an account on the website. This sounds intimidating right ? Don’t worry, this article will help you to achieve this goal. However, I highly recommend that you first try yourself to hack in(on your own), and only use this article as a guide in case you need help. </p>
@@ -27,21 +25,15 @@ First, visit the official <a href="https://www.hackthebox.eu/">Hack the Box</a> 
 
 This will take you to the <a href="https://www.hackthebox.eu/invite"> invite challenge.</a>
 
-<center><br>
 <img src="/assets/img/uploads/joinhackthebox/invitepage.png">
-</center>
 
 Let’s begin by analyzing the source code. Just right click on the page and go to ‘Inspect Element’ (or simply press Ctrl+Shift+I)
 
-<center><br>
 <img src="/assets/img/uploads/joinhackthebox/inspect.png">
-</center>
 
 We can see some javascript files in the end. Let's have look at <i>inviteapi.min.js</i>
 
-<center><br>
 <img src="/assets/img/uploads/joinhackthebox/inviteapi.png">
-</center>
 
 It seems like there are some runnable functions such as <i>makeInviteCode</i> and <i>generate</i> etc.
 
@@ -70,17 +62,13 @@ eval(function (p, a, c, k, e, r) {
 ```
 Let’s first try running the <i>makeInviteCode</i> function. We can execute any function in the Console tab. Input the name of the function that you want to execute and press Enter key.
 
-<center><br>
 <img src="/assets/img/uploads/joinhackthebox/console.png">
-</center>
 
 What the hell is that Skull image?
 
 Anyway if we see the response of the function that we executed, we get a hash which is base64 encoded.
 
-<center><br>
 <img src="/assets/img/uploads/joinhackthebox/response.png">
-</center>
 
 There is also a message which says that we need to decrypt the base64 hash. We can easily do this in our terminal.
 
@@ -110,9 +98,7 @@ EBSMY-RUBMI-HDBJN-ICREC-YRUMI
 
 Now we have our invitation code. You can simply go to the <a href="https://www.hackthebox.eu/invite">invite page,</a> and submit the invitation code you got.
 
-<center><br>
 <img src="/assets/img/uploads/joinhackthebox/congratulations.png">
-</center>
 
 Now you can scroll down and register on the website. Also, remember that simply copying the invite code from this article won't work because the code expires after use. So you need to create your own invite code :D
 

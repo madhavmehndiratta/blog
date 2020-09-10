@@ -74,15 +74,11 @@ Finished
 We have a simple <b>joomla website</b> running in the joomla directory. Looking at the robots.txt, I found an <b>administrator</b> 
 login page.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/robots.txt.png">
-</center>
 
 I tried logging in with some random usernames and passwords such as admin:admin, joomla:joomla, admin:joomla but that did not work.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/administrator.png">
-</center>
 
 The next option was to brute force the login credentials, For this I used Burp Suite. Before that we need a wordlist, I created it using cewl.
 
@@ -92,27 +88,19 @@ root@kali:~# cewl http://joker/joomla >> keywords.txt
 
 Now Let's fire up Burp Suite and intercept the login request. Once the request is captured, right click on the request and select <b>Send to Intruder</b> option.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/login-req.png">
-</center>
 
 After that head over to the <b>Intruder Tab</b> and select the attack type as <b>Sniper.</b> Also set the attack position only to the <b>passwd</b> field.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/payload-position.png">
-</center>
 
 Next we need to load our wordlist, for this go to the payloads tab click on the load button and choose the wordlist we made using cewl.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/payloads.png">
-</center>
 
 After the wordlist is loaded, make sure that you untick the <b>URL encode these characters</b> option and then click the <b>Start Attack</b> button to start the attack. After starting the attack, sort the results by length. The result with different length is most probably the password you are looking for.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/password.png">
-</center>
 
 Now we can login into the joomla panel with username <b>joomla</b> and password <b>Gotham.</b>
 
@@ -120,15 +108,11 @@ Now we can login into the joomla panel with username <b>joomla</b> and password 
 
 Now that we are logged in as super user, we need to find a way to upload a php reverse shell so that we can get a reverse shell from the target machine.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/joomla-panel.png">
-</center>
 
 We have a template named Protostar installed. I decided to edit this template and replaced the index.php with the php reverse shell by <a href="https://github.com/pentestmonkey/php-reverse-shell">pentestmonkey.</a>
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/rev-shell.png">
-</center>
 
 After that, I started a net cat listener on port 9001 and visited the index.php at <b>http://joker/joomla</b> and we managed to get a reverse shell.
 
@@ -146,9 +130,7 @@ www-data@glasgowsmile:/$
 ```
 Once we were in, I started enumerating the joomla configuration files and found mysql credentials in <b>configuration.php.</b>
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/configuration.php.png">
-</center>
 
 Now we can login into MySQL using username <b>joomla</b> and password <b>babyjoker.</b>
 
@@ -168,9 +150,7 @@ MariaDB [(none)]>
 ```
 After logging in, I saw a database batjoke in which there was a table named taskforce, Inside taskforce, there were some usernames and passwords encoded into base64.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/mysql.png">
-</center>
 
 Next, I decoded the password for user <b>rob</b> and got the password:<br><b>???AllIHaveAreNegativeThoughts???</b>
 
@@ -207,16 +187,13 @@ JKR[f5bb11acbb957915e421d62e7253d27a]
 
 ## Privilege Escalation (user “Abner”)
 
-Inside the “home” of the user <b>rob</b> I found a file <b>Abnerineedyourhelp</b>. The contents of the file are encoded into ROT13. 
-<center><br>
+Inside the “home” of the user <b>rob</b> I found a file <b>Abnerineedyourhelp</b>. The contents of the file are encoded into ROT13.
+
 <img src="/assets/img/uploads/glasgow-smile/abner-password.png">
-</center>
 
 Next I went to CyberChef to decode the text. This will have the clue to get the credentials of the next user.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/cyberchef.png">
-</center>
 
 The password we get here is encoded into base64, So we need to decode it again using:
 
@@ -241,9 +218,7 @@ JKR{0286c47edc9bfdaf643f5976a8cfbd8d}
 
 We already got our two flags and now it's time for the third. This is quite different from the other two because we do not have the clue right there in front. This needs some enumeration. I started with reading the <b>bash_history</b> of user abner.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/bash-history.png">
-</center>
 
 Here, we can see a file named <b>.dear_penguins.zip.</b> This file seems to be interesting, so I searched for this file using the <b>find</b> command.
 
@@ -286,27 +261,19 @@ JKR{284a3753ec11a592ee34098b8cb43d52}
 
 Inside the same directory, there is another file which contains hints for rooting this box.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/notice.png">
-</center>
 
 Also, there is a hidden file named <b>.trash_old</b> which is a bash script. This can be the software mentioned in the above message. It runs as <b>cron job</b> by the <b>root user</b> which can be confirmed by running the <a href="https://github.com/DominicBreuker/pspy">pspy</a> script.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/pspy.png">
-</center>
 
 This can be our way to root. We can try adding a reverse shell in the script which will connect back to our machine as the root user.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/root-shell.png">
-</center>
 
 After saving, I started a net cat listener on my machine and I got a connection back within a few minutes. Now we can read our final flag.
 
-<center><br>
 <img src="/assets/img/uploads/glasgow-smile/root.png">
-</center>
 
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>

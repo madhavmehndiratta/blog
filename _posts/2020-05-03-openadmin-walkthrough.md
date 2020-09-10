@@ -44,21 +44,15 @@ Nmap done: 1 IP address (1 host up) scanned in 55.29 seconds
 
 We see a webserver running on port 80 showing the default apache page.
 
-<center><br>
 <img src="/assets/img/uploads/openadmin/port80.png">
-</center>
 
 Next, we will be running a gobuster scan searching for the directories.
 
-<center><br>
 <img src="/assets/img/uploads/openadmin/dirbuster.png">
-</center>
 
 We can see a directory name ona which shows is running OpenNetAdmin Version 18.1.1
 
-<center><br>
 <img src="/assets/img/uploads/openadmin/ona.png">
-</center>
 
 On looking on searchsploit, we see a vulnerable version which gives us remote command execution.
 
@@ -274,9 +268,7 @@ We can see a service running on port 52846. We can get the file using:
 jimmy@openadmin:/var/www/internal$ curl 127.0.0.1:52846/main.php
 ```
 
-<center><br>
 <img src="/assets/img/uploads/openadmin/rsa.png">
-</center>
 
 Now we can decrypt the rsa using john and get the password <i>bloodninjas</i>
 
@@ -363,9 +355,7 @@ Then press <i>Ctrl + R</i> and then <i>Ctrl + X</i>. After that enter the follow
 
 `reset; sh 1>&0 2>&0`
 
-<center><br>
 <img src="/assets/img/uploads/openadmin/root.png">
-</center>
 
 That’s it! Thanks for reading! Make sure to stay tuned for more upcoming Hack The Box writeups!
 If you have any queries, you can contact me <a href="/contact">here.</a>

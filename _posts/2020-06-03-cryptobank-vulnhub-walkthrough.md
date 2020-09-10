@@ -49,9 +49,7 @@ Nmap done: 1 IP address (1 host up) scanned in 7.74 seconds
 
 We see a webserver running on port 80 which is running a cryptocurrency trading website. 
 
-<center><br>
 <img src="/assets/img/uploads/cryptobank/port80.png">
-</center>
 
 This seems to be a pretty website with some great functionality and potential vulnerabilities. Next we will be running a gobuster scan to search for hidden directories.
 
@@ -81,9 +79,7 @@ Finished
 
 We do not have access to the development directory. Looking at the trade directory, we can see a login page which is vulnerable to sql injection, and hence can be bypassed using the payload `admin'or'1=1'#`
 
-<center><br>
 <img src="/assets/img/uploads/cryptobank/trade-login.png">
-</center>
 
 On further enumeration in the trade directory, I found a page which is vulnerable to sql injection. 
 
@@ -164,9 +160,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra)
 
 But that does not seem to work. Enumerating more in the website, I found some more usernames in the page source of the home page.   
 
-<center><br>
 <img src="/assets/img/uploads/cryptobank/usernames.png">
-</center>
 
 We should add these usernames to the list and run the attack again.
 
@@ -186,9 +180,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra)
 
 We can now access the development directory with username <i>julius.b</i> and password <i>wJWm4CgV26</i> 
 
-<center><br>
 <img src="/assets/img/uploads/cryptobank/development.png">
-</center>
 
 We see a page show message <i>only for development.</i> Next we will be running a dirb scan to search recursively into the development directory.
 
@@ -219,9 +211,7 @@ By The Dark Raver
 
 The tools directory is quite interesting, we can do a lot of things here, but all the malicious activities are blocked by a firewall installed on the website. I had a look around these tools. ‘Execute a command’ requires another username and password which we don't have, ‘Upload a file’ seems to only accept image files (atleast without trying to hack it anyway). ‘View a system file’ seems more interesting though.
 
-<center><br>
 <img src="/assets/img/uploads/cryptobank/tools.png">
-</center>
 
 We can exploit the file inclusion vulnerability using metasploit.
 
@@ -247,9 +237,7 @@ e'=>false]])));"
 
 We got a payload, now we need to run the file on our target machine. Just paste the location of the payload in the url.
 
-<center><br>
 <img src="/assets/img/uploads/cryptobank/lfi.png">
-</center>
 
 After executing, we can shell that a reverse shell is opened on the target machine.
 
@@ -333,9 +321,7 @@ meterpreter >
 
 Now I visited the IP in my browser at <i>http://localhost:81</i>
 
-<center><br>
 <img src="/assets/img/uploads/cryptobank/solr.png">
-</center>
 
 This website is running Solr. I searched on metasploit and found an RCE exploit.
 

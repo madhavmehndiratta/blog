@@ -48,9 +48,7 @@ Nmap done: 1 IP address (1 host up) scanned in 97.26 seconds
 
 We see an Apache Web Server running on port 3333. Let's fire up our browser and see what we have there.
 
-<center><br>
 <img src="/assets/img/uploads/vulnversity/port3333.png">
-</center>
 
 Next, we will be running a gobuster scan searching for the directories.
 
@@ -79,31 +77,21 @@ Starting gobuster
 
 We found some directories. Opening the '/internal/' directory, provides us with some upload functionality!
 
-<center><br>
 <img src="/assets/img/uploads/vulnversity/internal.png">
-</center>
 
  The first thing that we need to check in upload options is the extension type. To fuzz the extensions we will use BurpSuite. It has a nice feature called intruder which can do the job in an automated fashion.
 
 First we need to upload a file (doesn’t really matter which file) and capture the request with BurpSuite proxy. After that right click on the request and choose send to intruder. Click the "Positions" tab now, find the filename and "Add §" to the extension. It should look like so: 
 
-<center><br>
 <img src="/assets/img/uploads/vulnversity/request.png">
-</center>
-
 
 Now add the extensions to the list in the Payload tab and disable the <i>payload encoding</i> option.
 
-<center><br>
 <img src="/assets/img/uploads/vulnversity/intruder.png">
-</center>
-
-
 
 As we can see .phtml returns 'Success'. This is the extension we will be using with our webshell.
-<center><br>
+
 <img src="/assets/img/uploads/vulnversity/attack.png">
-</center>
 
 I will use the webshell from <a href="https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php"> pentest monkey,</a> you can use any shell you like, change the IP and port in the shell and upload it to the server. After uploading, we can find it at /internal/uploads/.
 

@@ -37,9 +37,7 @@ Nmap done: 1 IP address (1 host up) scanned in 112.06 seconds
 ```
 Port 8080 was running a php webserver. Looking at it in the browser, there was some information but it was not clear. 
 
-<center><br><br>
 <img src="/assets/img/uploads/investigator/port8080.png">
-</center>
 
 I started a gobuster scan in the background but that didn't give me any interesting directory. Then I moved to the next port 5555 for further enumeration. For connecting to this port you need to install <b>adb.</b> You can install it by using the following command:
 
@@ -89,9 +87,7 @@ Agent "S"   Your Secret Key ---------------->259148637
 
 Next, I tried to use the android machine manually, The machine displays a lock screen and asks us to enter a pin. I tried entering the pin 6666666666 and 259148637 but none of them worked.
 
-<center><br><br>
 <img src="/assets/img/uploads/investigator/lock-screen.png">
-</center>
 
 We can bypass this login screen using adb. For this we need to delete the login key present in the system directory.
 
@@ -102,9 +98,7 @@ uid=0(root) gid=0(root)@x86:/data/root # exit
 
 Now when you restart the machine, the login screen does not appear. We can now access all apps inside the phone, but most of them are still protected by a third party app lock.
 
-<center><br><br>
 <img src="/assets/img/uploads/investigator/app-lock.png">
-</center>
 
 We need to use adb again to remove this app. Use the <b>adb uninstall</b> command followed by the app name to uninstall any app. In this case, I'll be removing the app lock.
 
@@ -114,9 +108,7 @@ root@kali:~# adb uninstall com.martianmode.applock
 
 Once the app lock is uninstalled, restart the machine, Now it will not ask for any password and we can read the final flag in the Messages App.
 
-<center><br><br>
 <img src="/assets/img/uploads/investigator/flag.png">
-</center>
 
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future! If you have any queries, you can contact me <a href="/contact">here.</a> 
 

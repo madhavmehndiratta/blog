@@ -39,9 +39,7 @@ Nmap done: 1 IP address (1 host up) scanned in 24.93 seconds
 
 We see a mysql port open and Samba smd running on port 139 and 445. We also have a web server running at port 80.
 
-<center><br>
 <img src="/assets/img/uploads/lazySysAdmin/port80.png">
-</center>
 
 Let's try gaining access to the samba and see if we can login anonymously. We will use <i>smbclient</i> for this. If it asks for any password, just leave it empty and press enter.
 
@@ -150,9 +148,7 @@ define('DB_PASSWORD', 'TogieMYSQL12345^^');
 
 We can use these to login into the wp-admin
 
-<center><br>
 <img src="/assets/img/uploads/lazySysAdmin/wordpress.png">
-</center>
 
 Now that we are successfully logged in, we can upload a payload packaged as a WordPress plugin. We can use metasploit here to exploit the server.
 

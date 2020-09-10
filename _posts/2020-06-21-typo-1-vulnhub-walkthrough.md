@@ -122,40 +122,28 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 <p align="justify"> First I went to the typo3 directory on port 80 and tried logging in with some default username and password but I wasn't successful. Then I went to the phpmyadmin directory on port 8081 and again tried some random username and passwords. This time I was able to login with username <b>root</b> and password <b>root.</b> </p>
 
-<center><br>
 <img src="/assets/img/uploads/typo/phpmyadmin.png">
-</center>
 
 Inside the phpmyadmin, I found a database named <b>TYPO3</b> inside which there was a table named <b>be_users</b> which contained two records.
 
-<center><br>
 <img src="/assets/img/uploads/typo/be-users.png">
-</center>
 
 These contain a password which is hashed using <b>argon2id</b> algorithm. I found a website named <a href="https://argon2.online/"> argon2.online </a> which can be used to generate such hashes. I went to this website and created my own hash.
 
-<center><br>
 <img src="/assets/img/uploads/typo/argon2-hash.png">
-</center>
 
 I replaced this hash with the admin's password in the be_users table. Now, I was able to login into the typo3-cms on port80 using username <b>admin</b> and password <b>madhav.</b>
 
-<center><br>
 <img src="/assets/img/uploads/typo/typo3-cms.png">
-</center>
 
 <p align="justify">
 Then I went to the <b>Filelist Panel</b> to see if I can upload a php backdoor. Unfortunately, php uploads were disabled on this website. After some enumeration, I found an option named <b>fileDenyUpload</b> in <b>Settings > Configure Installation-Wide Options</b> which restricts certain extensions from being uploaded on the website. I cleared this option and saved the settings. </p>
 
-<center><br>
 <img src="/assets/img/uploads/typo/file-extensions.png">
-</center>
 
 This time, I was able to upload the backdoor. I used the php-reverse-shell from <a href="https://github.com/pentestmonkey/php-reverse-shell">pentest monkey.</a>
 
-<center><br>
 <img src="/assets/img/uploads/typo/shell-upload.png">
-</center>
 
 Then I started a netcat listener, and sent a request to the backdoor I uploaded using <b>curl</b> on another terminal and got a reverse shell from the target machine.
 
@@ -207,9 +195,7 @@ find / -type f -perm -u=s 2>/dev/null
 ```
 As the name suggests, This binary <b>restarts the apache2 service.</b> I confirmed this by running <b>strings</b> command on the service.
 
-<center><br>
 <img src="/assets/img/uploads/typo/strings.png">
-</center>
 
 This is one of the most common privilege escalation method. All we need to do is create our own version of the service in the /tmp directory and add that path to the PATH variable. Then we can call apache2-restart, which will execute our malicious service with root privileges.
 

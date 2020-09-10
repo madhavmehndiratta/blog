@@ -20,19 +20,15 @@ Obtaining a web application's source code also means getting a hold of all devel
 
 ## Finding a .git Folder
 
-<center><br><br>
 <img src="/assets/img/uploads/source-code-disclosure/google-dork.png">
-</center>
-<br>
+
 There are many ways by which you can find a .git folder. The most popular is by searching for the following Google Dork: 
 
 `intitle:"Index of /.git"` 
 
 If the directory listing is enabled, then you could directly browse the .git folder’s contents as shown in the image below.
 
-<center><br><br>
 <img src="/assets/img/uploads/source-code-disclosure/directory-listing.png">
-</center>
 
 Another way is brute forcing the directories using open source tools such as dirb or dirsearch. They both look for .git 		folder. If automated tools are not allowed, simply go to web-app/.git (e.g. https://example.com/.git) on a browser. If you get a 404 error, then .git/ doesn’t exist on the application. But in some cases if you get a 403 Forbidden error, then it does! but not directly accessible if directory listing is disabled on the server.
 

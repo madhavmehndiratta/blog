@@ -65,9 +65,7 @@ Next, I ran an <i>enum4linux</i> scan and got a big list of users. These might b
 m1m3@kali:~$ enum4linux 192.168.1.8
 ```
 
-<center><br>
 <img src="/assets/img/uploads/stapler/users.png">
-</center>
 
 I copied this into a file named users.txt and then separated the name of users to a separate file.
 

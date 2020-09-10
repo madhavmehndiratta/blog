@@ -53,21 +53,15 @@ Nmap done: 1 IP address (1 host up) scanned in 7.62 seconds
 
 We have an ssh port open and an Apache 2.4.37 Web Server running on port 80. Looking at the port 80 on our web browser, we see some usernames and passwords along with their handles.
 
-<center><br>
 <img src="/assets/img/uploads/cybersploit-2/port80.png">
-</center>
 
 There is an entry on the 4th number which looks different from others. This is encrypted using some algorithm. Looking at the source code of the page, I found that it is encoded with ROT47.
 
-<center><br>
 <img src="/assets/img/uploads/cybersploit-2/source.png">
-</center>
 
 Next I went to CyberChef to decode the text and found a username <b>shailendra</b> and password <b>cybersploit1.</b>
 
-<center><br>
 <img src="/assets/img/uploads/cybersploit-2/cyberchef.png">
-</center>
 
 I used these credentials to login as user <b>shailendra</b> via ssh.
 

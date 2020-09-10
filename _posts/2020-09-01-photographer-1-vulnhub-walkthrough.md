@@ -109,53 +109,38 @@ smb: \> exit
 
 The <b>mailsent.txt</b> appears to be a copy of a mail. We can save the emails and names used in the email which may be useful in future.
 
-<center><br>
 <img src="/assets/img/uploads/photographer/mailsent.png">
-</center>
 
 Also, I tried enumerating the <b>wordpress.bkp.zip.</b> but did not find anything useful there. I suppose that was just a rabbit hole. Next I started enumeration on port 80.
 
-<center><br>
 <img src="/assets/img/uploads/photographer/port80.png">
-</center>
 
 The port 80 seems to run a beautiful website. Unfortunately, I didn't find anything useful here. 
 
 ## User Shell
 
-<center><br>
 <img src="/assets/img/uploads/photographer/port8000.png">
-</center>
 
 Next I went to port 8000 for further enumeration. This is the Daisa's website mentioned in the <i>mailsent.txt</i> and we can see that this is built using Koken CMS. The first thing I did after reading was to check on Google if some CVE is available for this CMS. I found an <a href="https://www.exploit-db.com/exploits/48706">exploit</a> which is published by the author of this machine itself :)
 
-<center><br>
 <img src="/assets/img/uploads/photographer/koken.png">
-</center>
 
 To run this exploit, we need to login into the CMS first. The credentials were already with us from the <i>mailsent.txt.</i> I logged in to the Koken CMS with username <i>daisa@photographer.com</i> and password <i>babygirl.</i>
 
-<center><br>
 <img src="/assets/img/uploads/photographer/koken-cms.png">
-</center>
 
 Now we will upload a php reverse shell and follow the steps as mentioned in the <a href="https://www.exploit-db.com/exploits/48706">exploit.</a> I will be using the php reverse shell by <a href="https://github.com/pentestmonkey/php-reverse-shell">pentest monkey.</a> I opened the upload dialog box by clicking on the <i>Import Content</i> button.
 
-<center><br>
 <img src="/assets/img/uploads/photographer/upload.png">
-</center>
 
 After selecting the reverse shell, I opened Burpsuite and configured my browser to connect to the Burp proxy. I turned the Intercept on and clicked on the import button. Then, I changed the name from <b>shell.php.jpg</b> to <b>shell.php</b> in the request as mentioned in the <a href="https://www.exploit-db.com/exploits/48706">exploit.</a>
 
-<center><br>
 <img src="/assets/img/uploads/photographer/burp.png">
-</center>
+
 
 Once that's complete, you will find a download button on the right, just right click there and choose "Open in New Tab" option. 
 
-<center><br>
 <img src="/assets/img/uploads/photographer/download.png">
-</center>
 
 We got our shell and now we can read our first flag :)
 
@@ -212,9 +197,7 @@ www-data@photographer:/$ /usr/bin/php7.2 -r "pcntl_exec('/bin/bash', ['-p']);"
 ```
 After executing, we can read our final flag!
 
-<center><br>
 <img src="/assets/img/uploads/photographer/root.png">
-</center>
 
 That’s it! Thanks for reading. Stay tuned for similar walkthroughs and much more coming up in the near future!
 If you have any queries, you can contact me <a href="/contact">here.</a>

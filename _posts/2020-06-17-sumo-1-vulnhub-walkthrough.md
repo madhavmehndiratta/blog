@@ -51,9 +51,7 @@ Nmap done: 1 IP address (1 host up) scanned in 7.48 seconds
 
 We have a port 80 open which displays a default web server page that says "It Works!"
 
-<center><br>
 <img src="/assets/img/uploads/sumo/port80.png">
-</center>
 
 <p align="justify">
 Next I ran a gobuster scan to look for hidden directories, but didn't find anything interesting there. Then I performed a nikto scan to search for some web based vulnerabilities and found that this web server is vulnerable to <b>shellshock vulnerability.</b> </p>
