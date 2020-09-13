@@ -3,7 +3,7 @@ date: 2020-08-27 01:55:11
 layout: post
 title: "Assembly Language Series: 0x02"
 subtitle:
-description: This article is the second part of the Assembly Language Series. In this we will complete the disassembly of our Hello World program.
+description: This article is the second part of the Assembly Language Series. In this we will complete disassembly of our Hello World program.
 image: /assets/img/uploads/assembly-02/robot.jpg
 optimized_image: /assets/img/uploads/assembly-02/robot-optimized.jpg
 category: exploitation
